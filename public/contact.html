@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اتصل بنا - الجوائز السعودي</title>
+    <meta name="description" content="تواصل معنا للحصول على أفضل الخدمات الاستشارية في مجال الجوائز والمسابقات">
+    
+    <!-- Bootstrap RTL CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Google Fonts - Tajawal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html" aria-label="الصفحة الرئيسية - الجوائز السعودي">
+                <i class="bi bi-award me-2" aria-hidden="true"></i>
+                الجوائز السعودي
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="تبديل القائمة">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="awards.html">دليل الجوائز</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="consultants.html">المستشارون</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">خدمات المنصة</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="news.html">أخبار المنصة</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact.html" aria-current="page">اتصل بنا</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero gradient-bg">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8 text-white">
+                        <h1 class="display-4 fw-bold mb-3">تواصل معنا</h1>
+                        <p class="lead mb-4">نحن هنا لمساعدتك في تحقيق أهدافك. تواصل معنا عبر أي من القنوات المتاحة أو احجز استشارة مجانية</p>
+                        <a href="#contact-form" class="btn btn-secondary btn-lg">أرسل رسالة</a>
+                    </div>
+                    <div class="col-lg-4 text-center">
+                        <div class="bg-white bg-opacity-10 rounded-4 p-4">
+                            <h3 class="text-white">أرقام التواصل</h3>
+                            <div class="mt-3">
+                                <p class="mb-2"><i class="bi bi-telephone me-2"></i>+966 11 234 5678</p>
+                                <p class="mb-2"><i class="bi bi-envelope me-2"></i>info@saudiawards.sa</p>
+                                <p class="mb-0"><i class="bi bi-whatsapp me-2"></i>+966 50 123 4567</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Options -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="row g-4">
+                    <!-- Phone Contact -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-card text-center h-100">
+                            <div class="service-icon-lg">
+                                <i class="bi bi-telephone"></i>
+                            </div>
+                            <h4>اتصل بنا مباشرة</h4>
+                            <p class="text-muted">فريق خدمة العملاء متوفر من السبت إلى الخميس من 8 صباحاً حتى 6 مساءً</p>
+                            <div class="mt-auto">
+                                <p class="fw-bold text-primary">+966 11 234 5678</p>
+                                <a href="tel:+966112345678" class="btn btn-outline-primary">اتصل الآن</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- WhatsApp Contact -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-card text-center h-100">
+                            <div class="service-icon-lg">
+                                <i class="bi bi-whatsapp"></i>
+                            </div>
+                            <h4>تواصل عبر واتساب</h4>
+                            <p class="text-muted">للاستفسارات السريعة والدعم الفوري، تواصل معنا عبر الواتساب</p>
+                            <div class="mt-auto">
+                                <p class="fw-bold text-primary">+966 50 123 4567</p>
+                                <a href="https://wa.me/966501234567" class="btn btn-outline-primary" target="_blank">راسلنا</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email Contact -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-card text-center h-100">
+                            <div class="service-icon-lg">
+                                <i class="bi bi-envelope"></i>
+                            </div>
+                            <h4>البريد الإلكتروني</h4>
+                            <p class="text-muted">للاستفسارات التفصيلية والملفات المرفقة، راسلنا عبر البريد الإلكتروني</p>
+                            <div class="mt-auto">
+                                <p class="fw-bold text-primary">info@saudiawards.sa</p>
+                                <a href="mailto:info@saudiawards.sa" class="btn btn-outline-primary">أرسل إيميل</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form & Info -->
+        <section class="py-5" id="contact-form">
+            <div class="container">
+                <div class="row g-5">
+                    <!-- Contact Form -->
+                    <div class="col-lg-8">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-primary text-white">
+                                <h3 class="mb-0">أرسل لنا رسالة</h3>
+                            </div>
+                            <div class="card-body p-4">
+                                <form id="contactForm">
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label for="firstName" class="form-label">الاسم الأول</label>
+                                            <input type="text" class="form-control" id="firstName" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="lastName" class="form-label">الاسم الأخير</label>
+                                            <input type="text" class="form-control" id="lastName" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="email" class="form-label">البريد الإلكتروني</label>
+                                            <input type="email" class="form-control" id="email" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="phone" class="form-label">رقم الهاتف</label>
+                                            <input type="tel" class="form-control" id="phone" required>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="inquiryType" class="form-label">نوع الاستفسار</label>
+                                            <select class="form-select" id="inquiryType" required>
+                                                <option value="">اختر نوع الاستفسار</option>
+                                                <option value="consultation">طلب استشارة</option>
+                                                <option value="services">استفسار عن الخدمات</option>
+                                                <option value="awards">معلومات عن الجوائز</option>
+                                                <option value="partnership">شراكة</option>
+                                                <option value="support">دعم فني</option>
+                                                <option value="other">أخرى</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="subject" class="form-label">الموضوع</label>
+                                            <input type="text" class="form-control" id="subject" required>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="message" class="form-label">الرسالة</label>
+                                            <textarea class="form-control" id="message" rows="5" required placeholder="اكتب رسالتك هنا..."></textarea>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="privacy" required>
+                                                <label class="form-check-label" for="privacy">
+                                                    أوافق على <a href="#privacy">سياسة الخصوصية</a> وشروط الاستخدام
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <button type="submit" class="btn btn-primary btn-lg">
+                                                <i class="bi bi-send me-2"></i>
+                                                إرسال الرسالة
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="col-lg-4">
+                        <!-- Office Info -->
+                        <div class="card border-0 shadow-sm mb-4">
+                            <div class="card-header bg-light">
+                                <h5 class="mb-0">معلومات المكتب</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="contact-item mb-3">
+                                    <i class="bi bi-geo-alt text-primary"></i>
+                                    <div>
+                                        <strong>العنوان:</strong><br>
+                                        طريق الملك فهد، حي العليا<br>
+                                        الرياض 12211<br>
+                                        المملكة العربية السعودية
+                                    </div>
+                                </div>
+                                <div class="contact-item mb-3">
+                                    <i class="bi bi-clock text-primary"></i>
+                                    <div>
+                                        <strong>أوقات العمل:</strong><br>
+                                        السبت - الخميس: 8:00 ص - 6:00 م<br>
+                                        الجمعة: مغلق
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="bi bi-shield-check text-primary"></i>
+                                    <div>
+                                        <strong>الترخيص:</strong><br>
+                                        مرخص من وزارة التجارة<br>
+                                        رقم السجل التجاري: 1010234567
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Links -->
+                        <div class="card border-0 shadow-sm mb-4">
+                            <div class="card-header bg-light">
+                                <h5 class="mb-0">روابط مفيدة</h5>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-2">
+                                        <a href="services.html" class="text-decoration-none">
+                                            <i class="bi bi-arrow-left me-2"></i>خدماتنا
+                                        </a>
+                                    </li>
+                                    <li class="mb-2">
+                                        <a href="consultants.html" class="text-decoration-none">
+                                            <i class="bi bi-arrow-left me-2"></i>المستشارون
+                                        </a>
+                                    </li>
+                                    <li class="mb-2">
+                                        <a href="awards.html" class="text-decoration-none">
+                                            <i class="bi bi-arrow-left me-2"></i>دليل الجوائز
+                                        </a>
+                                    </li>
+                                    <li class="mb-2">
+                                        <a href="news.html" class="text-decoration-none">
+                                            <i class="bi bi-arrow-left me-2"></i>أحدث الأخبار
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Emergency Contact -->
+                        <div class="card border-0 shadow-sm bg-danger text-white">
+                            <div class="card-body text-center">
+                                <i class="bi bi-telephone-fill fs-1 mb-3"></i>
+                                <h5>للحالات العاجلة</h5>
+                                <p class="mb-3">متوفر 24/7 للحالات العاجلة والمواعيد النهائية للجوائز</p>
+                                <a href="tel:+966501234567" class="btn btn-light">
+                                    <i class="bi bi-telephone me-2"></i>
+                                    +966 50 123 4567
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="section__title text-center mb-5">موقعنا على الخريطة</h2>
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body p-0">
+                                <!-- Placeholder for Google Maps -->
+                                <div class="ratio ratio-21x9">
+                                    <div class="d-flex align-items-center justify-content-center bg-light">
+                                        <div class="text-center">
+                                            <i class="bi bi-geo-alt-fill text-primary display-1 mb-3"></i>
+                                            <h4>خريطة تفاعلية</h4>
+                                            <p class="text-muted">طريق الملك فهد، حي العليا، الرياض</p>
+                                            <a href="https://maps.google.com" target="_blank" class="btn btn-primary">
+                                                <i class="bi bi-map me-2"></i>
+                                                فتح في خرائط جوجل
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="text-center mb-5">
+                            <h2 class="section__title">الأسئلة الشائعة</h2>
+                            <p class="lead text-muted">إجابات على أكثر الأسئلة شيوعاً حول خدماتنا</p>
+                        </div>
+                        
+                        <div class="accordion" id="contactFAQ">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="faqOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseContactOne">
+                                        كم يستغرق الرد على الاستفسارات؟
+                                    </button>
+                                </h2>
+                                <div id="collapseContactOne" class="accordion-collapse collapse show" data-bs-parent="#contactFAQ">
+                                    <div class="accordion-body">
+                                        نحن نهدف للرد على جميع الاستفسارات خلال 24 ساعة خلال أيام العمل. للحالات العاجلة، يمكنكم التواصل معنا هاتفياً أو عبر الواتساب للحصول على رد فوري.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="faqTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseContactTwo">
+                                        هل الاستشارة الأولى مجانية؟
+                                    </button>
+                                </h2>
+                                <div id="collapseContactTwo" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
+                                    <div class="accordion-body">
+                                        نعم، نقدم استشارة أولية مجانية لمدة 30 دقيقة لجميع العملاء الجدد لفهم احتياجاتهم وتقديم التوجيه الأولي المناسب.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="faqThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseContactThree">
+                                        هل تقدمون خدمات خارج الرياض؟
+                                    </button>
+                                </h2>
+                                <div id="collapseContactThree" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
+                                    <div class="accordion-body">
+                                        نعم، نقدم خدماتنا في جميع أنحاء المملكة العربية السعودية. يمكن تقديم الاستشارات عن بُعد عبر الفيديو، كما نوفر زيارات ميدانية للمشاريع الكبيرة.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-5 gradient-bg text-white">
+            <div class="container">
+                <div class="row justify-content-center text-center">
+                    <div class="col-lg-8">
+                        <h3 class="display-6 fw-bold mb-3">جاهزون لمساعدتك</h3>
+                        <p class="lead mb-4">فريقنا من الخبراء جاهز لتقديم أفضل الخدمات الاستشارية. تواصل معنا اليوم وابدأ رحلة النجاح</p>
+                        <div class="d-flex gap-3 justify-content-center flex-wrap">
+                            <a href="tel:+966112345678" class="btn btn-secondary btn-lg">
+                                <i class="bi bi-telephone me-2"></i>
+                                اتصل الآن
+                            </a>
+                            <a href="https://wa.me/966501234567" class="btn btn-outline-light btn-lg" target="_blank">
+                                <i class="bi bi-whatsapp me-2"></i>
+                                واتساب
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-light py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="footer-title">الجوائز السعودي</h5>
+                    <p class="mb-3">منصة شاملة تجمع جميع الجوائز في المملكة العربية السعودية مع خدمات استشارية متخصصة.</p>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="social-link" aria-label="تويتر">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="لينكد إن">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="يوتيوب">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="انستغرام">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-title">روابط سريعة</h5>
+                    <div class="footer-links">
+                        <a href="index.html">الرئيسية</a>
+                        <a href="awards.html">دليل الجوائز</a>
+                        <a href="consultants.html">المستشارون</a>
+                        <a href="services.html">الخدمات</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">معلومات المنصة</h5>
+                    <div class="footer-links">
+                        <a href="#about">عن المنصة</a>
+                        <a href="#team">فريق العمل</a>
+                        <a href="#careers">الوظائف</a>
+                        <a href="#press">المركز الإعلامي</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">تواصل معنا</h5>
+                    <div class="contact-item">
+                        <i class="bi bi-envelope"></i>
+                        <span>info@saudiawards.sa</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="bi bi-telephone"></i>
+                        <span>+966 11 234 5678</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="bi bi-geo-alt"></i>
+                        <span>الرياض، المملكة العربية السعودية</span>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="footer-divider my-4">
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2024 الجوائز السعودي. جميع الحقوق محفوظة.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="footer-links d-inline">
+                        <a href="#privacy" class="me-3">سياسة الخصوصية</a>
+                        <a href="#terms" class="me-3">شروط الاستخدام</a>
+                        <a href="#cookies">سياسة الكوكيز</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const firstName = formData.get('firstName');
+            const lastName = formData.get('lastName');
+            const email = formData.get('email');
+            const phone = formData.get('phone');
+            const inquiryType = formData.get('inquiryType');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+            
+            // Show success message
+            alert('شكراً لك! تم إرسال رسالتك بنجاح. سنتواصل معك خلال 24 ساعة.');
+            
+            // Reset form
+            this.reset();
+            
+            // In real implementation, you would send this data to your server
+            console.log('Form submitted:', {
+                firstName,
+                lastName,
+                email,
+                phone,
+                inquiryType,
+                subject,
+                message
+            });
+        });
+
+        // Form validation enhancement
+        (function() {
+            'use strict';
+            const forms = document.querySelectorAll('.needs-validation');
+            Array.prototype.slice.call(forms).forEach(function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        })();
+    </script>
+</body>
+</html>
