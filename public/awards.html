@@ -1,0 +1,1852 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل الجوائز الشامل - الجوائز السعودي</title>
+    <meta name="description" content="اكتشف أكثر من 350 جائزة في المملكة والمنطقة مع فلترة ذكية وبحث متقدم">
+    
+    <!-- Bootstrap RTL CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Google Fonts - Tajawal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --primary-color: hsl(142, 65%, 25%);
+            --primary-light: hsl(142, 65%, 35%);
+            --secondary-color: hsl(45, 85%, 55%);
+            --success-color: hsl(142, 65%, 25%);
+            --warning-color: hsl(45, 85%, 55%);
+            --danger-color: hsl(0, 84%, 60%);
+            --info-color: hsl(195, 100%, 50%);
+            --light-bg: hsl(50, 30%, 97%);
+            --border-color: hsl(50, 15%, 88%);
+            --text-muted: hsl(210, 15%, 50%);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.15);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.2);
+            --border-radius: 12px;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--light-bg);
+            color: #2c3e50;
+            direction: rtl;
+        }
+
+        /* Header Styles */
+        .awards-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            padding: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .awards-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="rgba(255,255,255,0.1)"><polygon points="0,0 1000,0 1000,100 0,80"/></svg>');
+            background-size: cover;
+        }
+
+        .stats-grid {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Search & Filter Section */
+        .search-filters-container {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
+            padding: 2rem;
+        }
+
+        .search-input-group {
+            position: relative;
+        }
+
+        .search-input {
+            height: 60px;
+            font-size: 1.1rem;
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding-right: 60px;
+            transition: var(--transition);
+        }
+
+        .search-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+            outline: none;
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .search-btn:hover {
+            background: var(--primary-light);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        /* Advanced Filters */
+        .filters-section {
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin-top: 1rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .filter-group {
+            margin-bottom: 1rem;
+        }
+
+        .filter-label {
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .filter-select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .filter-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.1);
+            outline: none;
+        }
+
+        /* Quick Filters */
+        .quick-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .quick-filter-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-color);
+            background: white;
+            color: #6c757d;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .quick-filter-btn:hover,
+        .quick-filter-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            transform: translateY(-1px);
+        }
+
+        /* Active Filters Display */
+        .active-filters {
+            background: #e3f2fd;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            display: none;
+        }
+
+        .active-filters.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .filter-tag {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            margin: 0.25rem;
+            position: relative;
+        }
+
+        .filter-tag .remove-filter {
+            margin-left: 0.5rem;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Results Header */
+        .results-header {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border: 1px solid var(--border-color);
+        }
+
+        .results-count {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #495057;
+        }
+
+        .sort-dropdown {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            background: white;
+            min-width: 200px;
+        }
+
+        .view-toggle {
+            display: flex;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 4px;
+            border: 1px solid var(--border-color);
+        }
+
+        .view-btn {
+            padding: 0.5rem 0.75rem;
+            border: none;
+            background: transparent;
+            border-radius: 6px;
+            color: #6c757d;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .view-btn.active,
+        .view-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Award Cards */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .award-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .award-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .award-card-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #f1f3f4;
+            position: relative;
+        }
+
+        .award-status {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-open {
+            background: var(--success-color);
+            color: white;
+            animation: pulse 2s infinite;
+        }
+
+        .status-soon {
+            background: var(--warning-color);
+            color: #333;
+        }
+
+        .status-closed {
+            background: var(--danger-color);
+            color: white;
+        }
+
+        .award-badges {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .award-badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .badge-scope-national { background: #e8f5e8; color: var(--success-color); }
+        .badge-scope-regional { background: #fff3cd; color: #856404; }
+        .badge-scope-international { background: #d1ecf1; color: #0c5460; }
+
+        .award-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .award-organization {
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .award-meta {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .meta-icon {
+            width: 16px;
+            height: 16px;
+            color: var(--primary-color);
+        }
+
+        .award-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .award-tag {
+            background: #f8f9fa;
+            color: #495057;
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .award-description {
+            color: #6c757d;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .award-actions {
+            padding: 1rem 1.5rem;
+            background: #f8f9fa;
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .btn-primary-custom {
+            background: linear-gradient(45deg, var(--primary-color), var(--primary-light));
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            flex: 1;
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary-custom {
+            background: white;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            padding: 0.75rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-secondary-custom:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* List View */
+        .awards-list {
+            display: none;
+        }
+
+        .awards-list.active {
+            display: block;
+        }
+
+        .award-list-item {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .award-list-item:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateX(-5px);
+        }
+
+        /* Award Details Modal */
+        .modal-header-custom {
+            background: linear-gradient(45deg, var(--primary-color), var(--primary-light));
+            color: white;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+        }
+
+        .modal-body-custom {
+            padding: 2rem;
+        }
+
+        .detail-section {
+            margin-bottom: 2rem;
+        }
+
+        .detail-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .detail-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .detail-value {
+            font-size: 1rem;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .requirements-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .requirements-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f1f3f4;
+            position: relative;
+            padding-right: 2rem;
+        }
+
+        .requirements-list li::before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            color: var(--success-color);
+            font-weight: bold;
+        }
+
+        .timeline {
+            position: relative;
+            padding-right: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            right: 1rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 1.5rem;
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            right: -1.5rem;
+            top: 1rem;
+            width: 12px;
+            height: 12px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--border-color);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 0.25rem 0;
+        }
+
+        /* Loading & Empty States */
+        .loading-skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-muted);
+        }
+
+        .empty-state-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #dee2e6;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .awards-header {
+                padding: 2rem 0;
+            }
+
+            .search-filters-container {
+                margin-top: -30px;
+                padding: 1.5rem;
+            }
+
+            .awards-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .award-meta {
+                grid-template-columns: 1fr;
+            }
+
+            .results-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-filters {
+                justify-content: center;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-light);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="awards-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <nav aria-label="breadcrumb" class="mb-3">
+                        <ol class="breadcrumb text-white-50">
+                            <li class="breadcrumb-item"><a href="index.html" class="text-white">الرئيسية</a></li>
+                            <li class="breadcrumb-item active text-white">دليل الجوائز</li>
+                        </ol>
+                    </nav>
+                    <h1 class="display-4 fw-bold mb-3">دليل الجوائز الشامل</h1>
+                    <p class="lead mb-0">اكتشف أكثر من 350 جائزة في المملكة والمنطقة مع فلترة ذكية وبحث متقدم</p>
+                </div>
+                <div class="col-lg-4">
+                    <div class="stats-grid text-center">
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <div class="stat-item">
+                                    <div class="h2 fw-bold mb-1" id="totalAwards">350+</div>
+                                    <div class="small opacity-75">جائزة مدرجة</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stat-item">
+                                    <div class="h2 fw-bold mb-1" id="openAwards">85</div>
+                                    <div class="small opacity-75">مفتوحة حالياً</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stat-item">
+                                    <div class="h2 fw-bold mb-1" id="closingSoon">25</div>
+                                    <div class="small opacity-75">تنتهي قريباً</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stat-item">
+                                    <div class="h2 fw-bold mb-1" id="newAwards">15</div>
+                                    <div class="small opacity-75">جائزة جديدة</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search & Filters Section -->
+    <div class="container">
+        <div class="search-filters-container">
+            <!-- Quick Search -->
+            <div class="row mb-4">
+                <div class="col-lg-8">
+                    <div class="search-input-group">
+                        <input type="text" id="searchInput" class="search-input" placeholder="ابحث عن اسم الجائزة، الجهة المانحة، أو الكلمات المفتاحية...">
+                        <button class="search-btn" onclick="performSearch()">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <button class="btn btn-outline-primary btn-lg w-100" data-bs-toggle="collapse" data-bs-target="#advancedFilters">
+                        <i class="bi bi-funnel me-2"></i>
+                        فلاتر متقدمة
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quick Filters -->
+            <div class="quick-filters">
+                <button class="quick-filter-btn" data-filter="status" data-value="open">مفتوحة للتقديم</button>
+                <button class="quick-filter-btn" data-filter="status" data-value="closing">تنتهي قريباً</button>
+                <button class="quick-filter-btn" data-filter="scope" data-value="international">جوائز دولية</button>
+                <button class="quick-filter-btn" data-filter="category" data-value="individuals">للأفراد</button>
+                <button class="quick-filter-btn" data-filter="category" data-value="organizations">للمؤسسات</button>
+                <button class="quick-filter-btn" data-filter="field" data-value="innovation">الابتكار والتقنية</button>
+                <button class="quick-filter-btn" data-filter="value" data-value="high">عالية القيمة</button>
+            </div>
+
+            <!-- Advanced Filters -->
+            <div class="collapse" id="advancedFilters">
+                <div class="filters-section">
+                    <h5 class="fw-bold mb-3">
+                        <i class="bi bi-sliders me-2"></i>
+                        فلاتر متقدمة
+                    </h5>
+                    <div class="row g-3">
+                        <div class="col-md-3">
+                            <div class="filter-group">
+                                <label class="filter-label">المجال</label>
+                                <select class="filter-select" id="fieldFilter">
+                                    <option value="">جميع المجالات</option>
+                                    <option value="education">التعليم والتدريب</option>
+                                    <option value="health">الصحة والطب</option>
+                                    <option value="innovation">الابتكار والتقنية</option>
+                                    <option value="culture">الثقافة والفنون</option>
+                                    <option value="environment">البيئة والاستدامة</option>
+                                    <option value="business">الأعمال وريادة الأعمال</option>
+                                    <option value="social">التنمية المجتمعية</option>
+                                    <option value="media">الإعلام والاتصال</option>
+                                    <option value="sports">الرياضة واللياقة</option>
+                                    <option value="science">العلوم والبحث</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="filter-group">
+                                <label class="filter-label">الحالة</label>
+                                <select class="filter-select" id="statusFilter">
+                                    <option value="">جميع الحالات</option>
+                                    <option value="open">مفتوحة للتقديم</option>
+                                    <option value="soon">تفتح قريباً</option>
+                                    <option value="closing">تنتهي قريباً</option>
+                                    <option value="closed">مغلقة</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="filter-group">
+                                <label class="filter-label">النطاق الجغرافي</label>
+                                <select class="filter-select" id="scopeFilter">
+                                    <option value="">جميع النطاقات</option>
+                                    <option value="local">محلي</option>
+                                    <option value="national">وطني</option>
+                                    <option value="regional">إقليمي</option>
+                                    <option value="international">دولي</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="filter-group">
+                                <label class="filter-label">الفئة المستهدفة</label>
+                                <select class="filter-select" id="categoryFilter">
+                                    <option value="">جميع الفئات</option>
+                                    <option value="individuals">أفراد</option>
+                                    <option value="organizations">منظمات</option>
+                                    <option value="teams">فرق العمل</option>
+                                    <option value="students">طلاب</option>
+                                    <option value="researchers">باحثون</option>
+                                    <option value="startups">شركات ناشئة</option>
+                                    <option value="women">نساء</option>
+                                    <option value="youth">شباب</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="filter-group">
+                                <label class="filter-label">قيمة الجائزة</label>
+                                <select class="filter-select" id="valueFilter">
+                                    <option value="">جميع القيم</option>
+                                    <option value="under-50k">أقل من 50,000 ر.س</option>
+                                    <option value="50k-100k">50,000 - 100,000 ر.س</option>
+                                    <option value="100k-500k">100,000 - 500,000 ر.س</option>
+                                    <option value="500k-1m">500,000 - 1,000,000 ر.س</option>
+                                    <option value="over-1m">أكثر من 1,000,000 ر.س</option>
+                                    <option value="non-monetary">جوائز غير مالية</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="filter-group">
+                                <label class="filter-label">الجهة المانحة</label>
+                                <select class="filter-select" id="organizerFilter">
+                                    <option value="">جميع الجهات</option>
+                                    <option value="government">جهات حكومية</option>
+                                    <option value="private">قطاع خاص</option>
+                                    <option value="nonprofit">منظمات غير ربحية</option>
+                                    <option value="international">منظمات دولية</option>
+                                    <option value="universities">جامعات</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="filter-group">
+                                <label class="filter-label">الدورية</label>
+                                <select class="filter-select" id="frequencyFilter">
+                                    <option value="">جميع الأنواع</option>
+                                    <option value="annual">سنوي</option>
+                                    <option value="biannual">نصف سنوي</option>
+                                    <option value="quarterly">ربع سنوي</option>
+                                    <option value="monthly">شهري</option>
+                                    <option value="one-time">لمرة واحدة</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="filter-group">
+                                <label class="filter-label">آخر موعد للتقديم</label>
+                                <select class="filter-select" id="deadlineFilter">
+                                    <option value="">جميع المواعيد</option>
+                                    <option value="week">خلال أسبوع</option>
+                                    <option value="month">خلال شهر</option>
+                                    <option value="quarter">خلال 3 أشهر</option>
+                                    <option value="year">خلال سنة</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-3 d-flex justify-content-between align-items-center">
+                        <div class="active-filters" id="activeFilters">
+                            <!-- Active filters will be displayed here -->
+                        </div>
+                        <div>
+                            <button class="btn btn-outline-secondary me-2" onclick="clearAllFilters()">
+                                <i class="bi bi-x-circle me-1"></i>
+                                مسح الفلاتر
+                            </button>
+                            <button class="btn btn-primary" onclick="applyFilters()">
+                                <i class="bi bi-check-circle me-1"></i>
+                                تطبيق الفلاتر
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Header -->
+        <div class="results-header d-flex justify-content-between align-items-center">
+            <div>
+                <div class="results-count" id="resultsCount">عرض 24 من أصل 347 جائزة</div>
+                <div class="text-muted small mt-1" id="activeFiltersSummary">
+                    <!-- Active filters summary -->
+                </div>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <!-- Sort Options -->
+                <div class="d-flex align-items-center gap-2">
+                    <label class="small text-muted mb-0">ترتيب حسب:</label>
+                    <select class="sort-dropdown" id="sortOptions">
+                        <option value="newest">الأحدث</option>
+                        <option value="deadline">الأقرب للإغلاق</option>
+                        <option value="value-high">الأعلى قيمة</option>
+                        <option value="value-low">الأقل قيمة</option>
+                        <option value="alphabetical">الأبجدية</option>
+                        <option value="popularity">الأكثر شعبية</option>
+                    </select>
+                </div>
+                
+                <!-- View Toggle -->
+                <div class="view-toggle">
+                    <button class="view-btn active" id="gridViewBtn" onclick="setViewMode('grid')">
+                        <i class="bi bi-grid-3x3-gap"></i>
+                    </button>
+                    <button class="view-btn" id="listViewBtn" onclick="setViewMode('list')">
+                        <i class="bi bi-list"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Awards Container -->
+        <div id="awardsContainer">
+            <!-- Grid View -->
+            <div class="awards-grid" id="awardsGrid">
+                <!-- Award cards will be populated by JavaScript -->
+            </div>
+
+            <!-- List View -->
+            <div class="awards-list" id="awardsList">
+                <!-- List items will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Load More Button -->
+        <div class="text-center my-5">
+            <button class="btn btn-outline-primary btn-lg px-5" id="loadMoreBtn" onclick="loadMoreAwards()">
+                <i class="bi bi-arrow-down-circle me-2"></i>
+                تحميل المزيد من الجوائز
+            </button>
+        </div>
+
+        <!-- Empty State -->
+        <div class="empty-state d-none" id="emptyState">
+            <div class="empty-state-icon">
+                <i class="bi bi-search"></i>
+            </div>
+            <h3>لم يتم العثور على نتائج</h3>
+            <p>جرب تعديل معايير البحث أو الفلاتر للعثور على الجوائز المناسبة</p>
+            <button class="btn btn-primary" onclick="clearAllFilters()">مسح جميع الفلاتر</button>
+        </div>
+    </div>
+
+    <!-- Award Details Modal -->
+    <div class="modal fade" id="awardDetailsModal" tabindex="-1" aria-labelledby="awardDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header modal-header-custom">
+                    <h5 class="modal-title" id="awardDetailsModalLabel">تفاصيل الجائزة</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+                </div>
+                <div class="modal-body modal-body-custom" id="modalContent">
+                    <!-- Content will be populated by JavaScript -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+                    <button type="button" class="btn btn-primary" id="applyBtn">التقديم الرسمي</button>
+                    <button type="button" class="btn btn-outline-primary" id="favoriteBtn">
+                        <i class="bi bi-heart"></i> إضافة للمفضلة
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        // Sample awards data
+        const awardsData = [
+            {
+                id: 1,
+                title: "جائزة الملك عبدالعزيز للجودة",
+                organization: "مؤسسة الملك عبدالعزيز للجودة",
+                field: "education",
+                status: "open",
+                deadline: "2024-12-15",
+                value: 500000,
+                scope: "national",
+                category: "organizations",
+                organizer: "government",
+                frequency: "annual",
+                description: "جائزة سنوية تهدف إلى تعزيز ثقافة الجودة والتميز في الأداء والخدمات في القطاعين الحكومي والخاص.",
+                tags: ["جودة", "تميز", "أداء"],
+                eligibility: "المؤسسات والشركات في المملكة العربية السعودية",
+                requirements: [
+                    "تطبيق نظام إدارة الجودة",
+                    "خبرة لا تقل عن 3 سنوات",
+                    "حاصل على شهادة ISO 9001",
+                    "تقديم تقارير الأداء للسنوات الثلاث الماضية"
+                ],
+                categories: ["مؤسسات كبيرة", "مؤسسات صغيرة ومتوسطة", "جهات حكومية"],
+                timeline: [
+                    { date: "1 سبتمبر 2024", title: "فتح باب التقديم", status: "completed" },
+                    { date: "15 ديسمبر 2024", title: "آخر موعد للتقديم", status: "current" },
+                    { date: "31 يناير 2025", title: "انتهاء فترة التقييم الأولي", status: "upcoming" },
+                    { date: "31 مارس 2025", title: "الزيارات الميدانية", status: "upcoming" },
+                    { date: "30 أبريل 2025", title: "إعلان النتائج", status: "upcoming" }
+                ],
+                website: "https://www.kaqa.org.sa",
+                contact: "info@kaqa.org.sa"
+            },
+            {
+                id: 2,
+                title: "جائزة زايد للاستدامة",
+                organization: "دولة الإمارات العربية المتحدة",
+                field: "environment",
+                status: "soon",
+                deadline: "2025-03-15",
+                value: 2200000,
+                scope: "international",
+                category: "organizations",
+                organizer: "international",
+                frequency: "annual",
+                description: "جائزة عالمية تكرم المشاريع والمبادرات المبتكرة في مجال الاستدامة والطاقة المتجددة والحلول البيئية.",
+                tags: ["استدامة", "بيئة", "ابتكار"],
+                eligibility: "منظمات ومشاريع من جميع أنحاء العالم",
+                requirements: [
+                    "مشروع مطبق وفعال",
+                    "تأثير إيجابي مثبت على البيئة",
+                    "قابلية التوسع والتطبيق",
+                    "خطة استدامة واضحة"
+                ],
+                categories: ["الصحة", "الطاقة", "المياه", "الغذاء", "المدارس الثانوية العالمية"],
+                timeline: [
+                    { date: "15 يناير 2025", title: "فتح باب التقديم", status: "upcoming" },
+                    { date: "15 مارس 2025", title: "آخر موعد للتقديم", status: "upcoming" },
+                    { date: "30 مايو 2025", title: "انتهاء فترة التقييم", status: "upcoming" },
+                    { date: "15 يوليو 2025", title: "إعلان النتائج", status: "upcoming" }
+                ],
+                website: "https://zayedsustainabilityprize.com",
+                contact: "info@zayedsustainabilityprize.com"
+            },
+            {
+                id: 3,
+                title: "جائزة الأمير محمد بن سلمان للابتكار",
+                organization: "مؤسسة الأمير محمد بن سلمان الخيرية",
+                field: "innovation",
+                status: "open",
+                deadline: "2024-12-20",
+                value: 2000000,
+                scope: "national",
+                category: "youth",
+                organizer: "government",
+                frequency: "annual",
+                description: "أكبر جائزة للابتكار في المملكة تستهدف الشباب المبدعين والمبتكرين في مختلف المجالات التقنية والعلمية.",
+                tags: ["ابتكار", "تقنية", "شباب"],
+                eligibility: "الشباب السعودي من سن 18-35 سنة",
+                requirements: [
+                    "مشروع ابتكاري أصيل",
+                    "نموذج أولي أو تطبيق فعلي",
+                    "خطة عمل واضحة",
+                    "فريق عمل متكامل"
+                ],
+                categories: ["الذكاء الاصطناعي", "التقنية المالية", "الصحة الرقمية", "التعليم التقني"],
+                timeline: [
+                    { date: "1 أكتوبر 2024", title: "فتح باب التقديم", status: "completed" },
+                    { date: "20 ديسمبر 2024", title: "آخر موعد للتقديم", status: "current" },
+                    { date: "31 يناير 2025", title: "انتهاء فترة التقييم", status: "upcoming" },
+                    { date: "28 فبراير 2025", title: "إعلان النتائج", status: "upcoming" }
+                ],
+                website: "https://www.misk.org.sa",
+                contact: "innovation@misk.org.sa"
+            },
+            {
+                id: 4,
+                title: "جائزة الصحة العربية للابتكار الطبي",
+                organization: "منظمة الصحة العالمية - المكتب الإقليمي",
+                field: "health",
+                status: "open",
+                deadline: "2024-12-10",
+                value: 500000,
+                scope: "regional",
+                category: "researchers",
+                organizer: "international",
+                frequency: "annual",
+                description: "تكرم الأبحاث والابتكارات الطبية المتميزة في المنطقة العربية والتي تساهم في تطوير الرعاية الصحية.",
+                tags: ["صحة", "طب", "بحث علمي"],
+                eligibility: "باحثون ومهنيو الصحة في المنطقة العربية",
+                requirements: [
+                    "بحث علمي منشور أو مقبول للنشر",
+                    "تأثير إيجابي على الصحة العامة",
+                    "خبرة لا تقل عن 5 سنوات في المجال",
+                    "توصيات من خبراء في المجال"
+                ],
+                categories: ["طب الأطفال", "الطب الباطني", "الجراحة", "الصحة العامة"],
+                timeline: [
+                    { date: "15 سبتمبر 2024", title: "فتح باب التقديم", status: "completed" },
+                    { date: "10 ديسمبر 2024", title: "آخر موعد للتقديم", status: "current" },
+                    { date: "15 فبراير 2025", title: "انتهاء فترة التقييم", status: "upcoming" },
+                    { date: "30 مارس 2025", title: "إعلان النتائج", status: "upcoming" }
+                ],
+                website: "https://www.who.int/ar",
+                contact: "awards@who.int"
+            },
+            {
+                id: 5,
+                title: "جائزة بنك الراجحي لريادة الأعمال",
+                organization: "بنك الراجحي - المملكة العربية السعودية",
+                field: "business",
+                status: "open",
+                deadline: "2024-11-25",
+                value: 1000000,
+                scope: "national",
+                category: "startups",
+                organizer: "private",
+                frequency: "annual",
+                description: "تدعم الشركات الناشئة والمشاريع الريادية المبتكرة في المجال المالي والتقني مع برنامج حاضنة شامل.",
+                tags: ["ريادة أعمال", "مالية", "ابتكار"],
+                eligibility: "شركات ناشئة في المملكة العربية السعودية",
+                requirements: [
+                    "شركة مسجلة رسمياً",
+                    "عمر الشركة أقل من 5 سنوات",
+                    "نمو في الإيرادات خلال العامين الماضيين",
+                    "فريق عمل متكامل"
+                ],
+                categories: ["التقنية المالية", "التجارة الإلكترونية", "الصحة الرقمية", "التعليم الرقمي"],
+                timeline: [
+                    { date: "1 أغسطس 2024", title: "فتح باب التقديم", status: "completed" },
+                    { date: "25 نوفمبر 2024", title: "آخر موعد للتقديم", status: "current" },
+                    { date: "31 ديسمبر 2024", title: "انتهاء فترة التقييم", status: "upcoming" },
+                    { date: "31 يناير 2025", title: "إعلان النتائج", status: "upcoming" }
+                ],
+                website: "https://www.alrajhibank.com.sa",
+                contact: "entrepreneurship@alrajhibank.com.sa"
+            },
+            {
+                id: 6,
+                title: "جائزة الشارقة للإبداع الثقافي",
+                organization: "دائرة الثقافة - إمارة الشارقة",
+                field: "culture",
+                status: "closed",
+                deadline: "2024-10-30",
+                value: 300000,
+                scope: "regional",
+                category: "individuals",
+                organizer: "government",
+                frequency: "annual",
+                description: "تكرم المبدعين في مجالات الأدب والفنون والثقافة من مختلف أنحاء العالم العربي.",
+                tags: ["ثقافة", "فنون", "إبداع"],
+                eligibility: "مبدعون في المجالات الثقافية والفنية",
+                requirements: [
+                    "أعمال منشورة أو معروضة",
+                    "خبرة لا تقل عن 10 سنوات",
+                    "تأثير ثقافي واضح",
+                    "تقديم ملف أعمال شامل"
+                ],
+                categories: ["الأدب", "الفنون التشكيلية", "المسرح", "السينما"],
+                timeline: [
+                    { date: "1 يوليو 2024", title: "فتح باب التقديم", status: "completed" },
+                    { date: "30 أكتوبر 2024", title: "آخر موعد للتقديم", status: "completed" },
+                    { date: "31 ديسمبر 2024", title: "انتهاء فترة التقييم", status: "upcoming" },
+                    { date: "28 فبراير 2025", title: "إعلان النتائج", status: "upcoming" }
+                ],
+                website: "https://www.shjculture.ae",
+                contact: "awards@shjculture.ae"
+            }
+        ];
+
+        // Global variables
+        let currentViewMode = 'grid';
+        let currentFilters = {};
+        let filteredAwards = [...awardsData];
+        let currentPage = 1;
+        const itemsPerPage = 12;
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            renderAwards();
+            updateResultsCount();
+            initializeEventListeners();
+        });
+
+        // Initialize event listeners
+        function initializeEventListeners() {
+            // Search input with debounce
+            let searchTimeout;
+            document.getElementById('searchInput').addEventListener('input', function() {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => {
+                    applyFilters();
+                }, 300);
+            });
+
+            // Filter selects
+            const filterSelects = ['fieldFilter', 'statusFilter', 'scopeFilter', 'categoryFilter', 'valueFilter', 'organizerFilter', 'frequencyFilter', 'deadlineFilter'];
+            filterSelects.forEach(id => {
+                document.getElementById(id).addEventListener('change', applyFilters);
+            });
+
+            // Sort options
+            document.getElementById('sortOptions').addEventListener('change', function() {
+                sortAwards(this.value);
+                renderAwards();
+            });
+
+            // Quick filter buttons
+            document.querySelectorAll('.quick-filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const filter = this.dataset.filter;
+                    const value = this.dataset.value;
+                    
+                    // Toggle active state
+                    if (this.classList.contains('active')) {
+                        this.classList.remove('active');
+                        delete currentFilters[filter];
+                    } else {
+                        // Remove active from other buttons with same filter
+                        document.querySelectorAll(`[data-filter="${filter}"]`).forEach(b => b.classList.remove('active'));
+                        this.classList.add('active');
+                        currentFilters[filter] = value;
+                    }
+                    
+                    applyFilters();
+                });
+            });
+        }
+
+        // Apply filters
+        function applyFilters() {
+            // Get search term
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            
+            // Get filter values
+            currentFilters = {
+                search: searchTerm,
+                field: document.getElementById('fieldFilter').value,
+                status: document.getElementById('statusFilter').value,
+                scope: document.getElementById('scopeFilter').value,
+                category: document.getElementById('categoryFilter').value,
+                value: document.getElementById('valueFilter').value,
+                organizer: document.getElementById('organizerFilter').value,
+                frequency: document.getElementById('frequencyFilter').value,
+                deadline: document.getElementById('deadlineFilter').value,
+                ...currentFilters // Keep quick filter values
+            };
+
+            // Filter awards
+            filteredAwards = awardsData.filter(award => {
+                // Search filter
+                if (currentFilters.search) {
+                    const searchableText = `${award.title} ${award.organization} ${award.description} ${award.tags.join(' ')}`.toLowerCase();
+                    if (!searchableText.includes(currentFilters.search)) {
+                        return false;
+                    }
+                }
+
+                // Field filter
+                if (currentFilters.field && award.field !== currentFilters.field) {
+                    return false;
+                }
+
+                // Status filter
+                if (currentFilters.status) {
+                    if (currentFilters.status === 'closing') {
+                        const deadline = new Date(award.deadline);
+                        const today = new Date();
+                        const diffTime = deadline - today;
+                        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                        if (diffDays > 30) return false;
+                    } else if (award.status !== currentFilters.status) {
+                        return false;
+                    }
+                }
+
+                // Other filters
+                if (currentFilters.scope && award.scope !== currentFilters.scope) return false;
+                if (currentFilters.category && award.category !== currentFilters.category) return false;
+                if (currentFilters.organizer && award.organizer !== currentFilters.organizer) return false;
+                if (currentFilters.frequency && award.frequency !== currentFilters.frequency) return false;
+
+                // Value filter
+                if (currentFilters.value) {
+                    const value = award.value;
+                    switch (currentFilters.value) {
+                        case 'under-50k':
+                            if (value >= 50000) return false;
+                            break;
+                        case '50k-100k':
+                            if (value < 50000 || value > 100000) return false;
+                            break;
+                        case '100k-500k':
+                            if (value < 100000 || value > 500000) return false;
+                            break;
+                        case '500k-1m':
+                            if (value < 500000 || value > 1000000) return false;
+                            break;
+                        case 'over-1m':
+                            if (value <= 1000000) return false;
+                            break;
+                        case 'high':
+                            if (value < 500000) return false;
+                            break;
+                    }
+                }
+
+                return true;
+            });
+
+            currentPage = 1;
+            renderAwards();
+            updateResultsCount();
+            updateActiveFilters();
+        }
+
+        // Update active filters display
+        function updateActiveFilters() {
+            const container = document.getElementById('activeFilters');
+            const summary = document.getElementById('activeFiltersSummary');
+            
+            let activeCount = 0;
+            let filterTags = [];
+
+            Object.entries(currentFilters).forEach(([key, value]) => {
+                if (value && value !== '') {
+                    activeCount++;
+                    if (key !== 'search') {
+                        const displayText = getFilterDisplayText(key, value);
+                        filterTags.push(`<span class="filter-tag">${displayText} <span class="remove-filter" onclick="removeFilter('${key}')">×</span></span>`);
+                    }
+                }
+            });
+
+            if (activeCount > 0) {
+                container.innerHTML = filterTags.join('');
+                container.classList.add('show');
+                summary.textContent = `${activeCount} فلتر نشط`;
+            } else {
+                container.classList.remove('show');
+                summary.textContent = '';
+            }
+        }
+
+        // Get filter display text
+        function getFilterDisplayText(key, value) {
+            const translations = {
+                'field': {
+                    'education': 'التعليم',
+                    'health': 'الصحة',
+                    'innovation': 'الابتكار',
+                    'culture': 'الثقافة',
+                    'environment': 'البيئة',
+                    'business': 'الأعمال'
+                },
+                'status': {
+                    'open': 'مفتوحة',
+                    'soon': 'قريباً',
+                    'closed': 'مغلقة',
+                    'closing': 'تنتهي قريباً'
+                },
+                'scope': {
+                    'local': 'محلي',
+                    'national': 'وطني',
+                    'regional': 'إقليمي',
+                    'international': 'دولي'
+                },
+                'category': {
+                    'individuals': 'أفراد',
+                    'organizations': 'منظمات',
+                    'teams': 'فرق',
+                    'students': 'طلاب',
+                    'youth': 'شباب',
+                    'startups': 'شركات ناشئة'
+                }
+            };
+
+            return translations[key]?.[value] || value;
+        }
+
+        // Remove filter
+        function removeFilter(filterKey) {
+            delete currentFilters[filterKey];
+            document.getElementById(filterKey + 'Filter').value = '';
+            
+            // Remove active class from quick filter buttons
+            document.querySelectorAll(`[data-filter="${filterKey}"]`).forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            applyFilters();
+        }
+
+        // Clear all filters
+        function clearAllFilters() {
+            currentFilters = {};
+            
+            // Reset all filter inputs
+            document.getElementById('searchInput').value = '';
+            const filterSelects = ['fieldFilter', 'statusFilter', 'scopeFilter', 'categoryFilter', 'valueFilter', 'organizerFilter', 'frequencyFilter', 'deadlineFilter'];
+            filterSelects.forEach(id => {
+                document.getElementById(id).value = '';
+            });
+            
+            // Remove active class from quick filter buttons
+            document.querySelectorAll('.quick-filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            filteredAwards = [...awardsData];
+            currentPage = 1;
+            renderAwards();
+            updateResultsCount();
+            updateActiveFilters();
+        }
+
+        // Sort awards
+        function sortAwards(sortBy) {
+            filteredAwards.sort((a, b) => {
+                switch (sortBy) {
+                    case 'deadline':
+                        return new Date(a.deadline) - new Date(b.deadline);
+                    case 'value-high':
+                        return b.value - a.value;
+                    case 'value-low':
+                        return a.value - b.value;
+                    case 'alphabetical':
+                        return a.title.localeCompare(b.title, 'ar');
+                    case 'popularity':
+                        return Math.random() - 0.5; // Random for demo
+                    default: // newest
+                        return b.id - a.id;
+                }
+            });
+        }
+
+        // Render awards
+        function renderAwards() {
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const currentAwards = filteredAwards.slice(0, endIndex);
+
+            if (currentViewMode === 'grid') {
+                renderGridView(currentAwards);
+            } else {
+                renderListView(currentAwards);
+            }
+
+            // Show/hide load more button
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            if (endIndex >= filteredAwards.length) {
+                loadMoreBtn.style.display = 'none';
+            } else {
+                loadMoreBtn.style.display = 'block';
+            }
+
+            // Show/hide empty state
+            const emptyState = document.getElementById('emptyState');
+            if (filteredAwards.length === 0) {
+                emptyState.classList.remove('d-none');
+                document.getElementById('awardsContainer').style.display = 'none';
+            } else {
+                emptyState.classList.add('d-none');
+                document.getElementById('awardsContainer').style.display = 'block';
+            }
+        }
+
+        // Render grid view
+        function renderGridView(awards) {
+            const gridContainer = document.getElementById('awardsGrid');
+            const listContainer = document.getElementById('awardsList');
+            
+            gridContainer.style.display = 'grid';
+            listContainer.style.display = 'none';
+            
+            gridContainer.innerHTML = awards.map(award => createAwardCard(award)).join('');
+        }
+
+        // Render list view
+        function renderListView(awards) {
+            const gridContainer = document.getElementById('awardsGrid');
+            const listContainer = document.getElementById('awardsList');
+            
+            gridContainer.style.display = 'none';
+            listContainer.style.display = 'block';
+            listContainer.classList.add('active');
+            
+            listContainer.innerHTML = awards.map(award => createAwardListItem(award)).join('');
+        }
+
+        // Create award card
+        function createAwardCard(award) {
+            const statusClass = {
+                'open': 'status-open',
+                'soon': 'status-soon',
+                'closed': 'status-closed'
+            }[award.status];
+
+            const scopeClass = {
+                'national': 'badge-scope-national',
+                'regional': 'badge-scope-regional',
+                'international': 'badge-scope-international'
+            }[award.scope];
+
+            const deadlineDate = new Date(award.deadline);
+            const today = new Date();
+            const diffTime = deadlineDate - today;
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+            return `
+                <div class="award-card fade-in">
+                    <div class="award-card-header">
+                        <div class="award-status ${statusClass}">
+                            ${getStatusText(award.status)}
+                        </div>
+                        <div class="award-badges">
+                            <span class="award-badge ${scopeClass}">${getScopeText(award.scope)}</span>
+                            <span class="award-badge" style="background: #f8f9fa; color: #6c757d;">${award.frequency === 'annual' ? 'سنوي' : award.frequency}</span>
+                        </div>
+                        <h3 class="award-title">${award.title}</h3>
+                        <div class="award-organization">${award.organization}</div>
+                        <div class="award-meta">
+                            <div class="meta-item">
+                                <i class="bi bi-calendar-event meta-icon"></i>
+                                <span>${formatDate(award.deadline)}</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="bi bi-cash-coin meta-icon"></i>
+                                <span>${formatCurrency(award.value)}</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="bi bi-people meta-icon"></i>
+                                <span>${getCategoryText(award.category)}</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="bi bi-clock meta-icon"></i>
+                                <span>${diffDays > 0 ? `${diffDays} يوم متبقي` : 'انتهت'}</span>
+                            </div>
+                        </div>
+                        <div class="award-tags">
+                            ${award.tags.map(tag => `<span class="award-tag">${tag}</span>`).join('')}
+                        </div>
+                        <div class="award-description">${award.description}</div>
+                    </div>
+                    <div class="award-actions">
+                        <button class="btn-primary-custom" onclick="showAwardDetails(${award.id})" ${award.status === 'closed' ? 'disabled' : ''}>
+                            <i class="bi bi-eye me-2"></i>
+                            عرض التفاصيل
+                        </button>
+                        <button class="btn-secondary-custom" onclick="addToFavorites(${award.id})">
+                            <i class="bi bi-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Create award list item
+        function createAwardListItem(award) {
+            return `
+                <div class="award-list-item fade-in">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <div class="d-flex gap-2 mb-2">
+                                <span class="award-status ${award.status === 'open' ? 'status-open' : award.status === 'soon' ? 'status-soon' : 'status-closed'}">
+                                    ${getStatusText(award.status)}
+                                </span>
+                                <span class="award-badge">${getScopeText(award.scope)}</span>
+                            </div>
+                            <h4 class="award-title mb-2">${award.title}</h4>
+                            <div class="award-organization mb-2">${award.organization}</div>
+                            <div class="award-description">${award.description}</div>
+                            <div class="award-tags mt-2">
+                                ${award.tags.map(tag => `<span class="award-tag">${tag}</span>`).join('')}
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-start">
+                            <div class="mb-2">
+                                <strong>${formatCurrency(award.value)}</strong>
+                            </div>
+                            <div class="text-muted mb-3">
+                                <i class="bi bi-calendar-event me-1"></i>
+                                ${formatDate(award.deadline)}
+                            </div>
+                            <div class="d-flex gap-2">
+                                <button class="btn-primary-custom" onclick="showAwardDetails(${award.id})" ${award.status === 'closed' ? 'disabled' : ''}>
+                                    عرض التفاصيل
+                                </button>
+                                <button class="btn-secondary-custom" onclick="addToFavorites(${award.id})">
+                                    <i class="bi bi-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Show award details
+        function showAwardDetails(awardId) {
+            const award = awardsData.find(a => a.id === awardId);
+            if (!award) return;
+
+            const modalContent = document.getElementById('modalContent');
+            const modalTitle = document.getElementById('awardDetailsModalLabel');
+            const applyBtn = document.getElementById('applyBtn');
+
+            modalTitle.textContent = award.title;
+            
+            modalContent.innerHTML = `
+                <div class="detail-section">
+                    <div class="detail-title">معلومات أساسية</div>
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <div class="detail-label">الجهة المانحة</div>
+                            <div class="detail-value">${award.organization}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">المجال</div>
+                            <div class="detail-value">${getFieldText(award.field)}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">النطاق</div>
+                            <div class="detail-value">${getScopeText(award.scope)}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">الفئة المستهدفة</div>
+                            <div class="detail-value">${getCategoryText(award.category)}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">قيمة الجائزة</div>
+                            <div class="detail-value">${formatCurrency(award.value)}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">آخر موعد للتقديم</div>
+                            <div class="detail-value">${formatDate(award.deadline)}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">الدورية</div>
+                            <div class="detail-value">${award.frequency === 'annual' ? 'سنوي' : award.frequency}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">الحالة</div>
+                            <div class="detail-value">
+                                <span class="award-status ${award.status === 'open' ? 'status-open' : award.status === 'soon' ? 'status-soon' : 'status-closed'}">
+                                    ${getStatusText(award.status)}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <div class="detail-title">نظرة عامة</div>
+                    <p>${award.description}</p>
+                </div>
+
+                <div class="detail-section">
+                    <div class="detail-title">شروط الأهلية</div>
+                    <p><strong>الفئة المستهدفة:</strong> ${award.eligibility}</p>
+                </div>
+
+                <div class="detail-section">
+                    <div class="detail-title">المتطلبات</div>
+                    <ul class="requirements-list">
+                        ${award.requirements.map(req => `<li>${req}</li>`).join('')}
+                    </ul>
+                </div>
+
+                <div class="detail-section">
+                    <div class="detail-title">فئات الجائزة</div>
+                    <div class="row g-2">
+                        ${award.categories.map(cat => `
+                            <div class="col-md-6">
+                                <div class="p-2 bg-light rounded">
+                                    <i class="bi bi-award text-primary me-2"></i>
+                                    ${cat}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <div class="detail-title">الجدول الزمني</div>
+                    <div class="timeline">
+                        ${award.timeline.map(item => `
+                            <div class="timeline-item">
+                                <div class="timeline-date">${formatDate(item.date)}</div>
+                                <div class="timeline-title">${item.title}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <div class="detail-title">معلومات التواصل</div>
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <div class="detail-label">الموقع الإلكتروني</div>
+                            <div class="detail-value">
+                                <a href="${award.website}" target="_blank" class="text-primary">
+                                    ${award.website}
+                                    <i class="bi bi-box-arrow-up-right ms-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">البريد الإلكتروني</div>
+                            <div class="detail-value">
+                                <a href="mailto:${award.contact}" class="text-primary">${award.contact}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Update apply button
+            if (award.status === 'closed') {
+                applyBtn.disabled = true;
+                applyBtn.textContent = 'انتهت فترة التقديم';
+            } else {
+                applyBtn.disabled = false;
+                applyBtn.textContent = 'التقديم الرسمي';
+                applyBtn.onclick = () => window.open(award.website, '_blank');
+            }
+
+            // Show modal
+            const modal = new bootstrap.Modal(document.getElementById('awardDetailsModal'));
+            modal.show();
+        }
+
+        // Add to favorites
+        function addToFavorites(awardId) {
+            // Simulate adding to favorites
+            const button = event.target;
+            const icon = button.querySelector('i');
+            
+            if (icon.classList.contains('bi-heart')) {
+                icon.classList.remove('bi-heart');
+                icon.classList.add('bi-heart-fill');
+                button.style.color = '#dc3545';
+            } else {
+                icon.classList.remove('bi-heart-fill');
+                icon.classList.add('bi-heart');
+                button.style.color = '';
+            }
+        }
+
+        // Set view mode
+        function setViewMode(mode) {
+            currentViewMode = mode;
+            
+            // Update button states
+            document.getElementById('gridViewBtn').classList.toggle('active', mode === 'grid');
+            document.getElementById('listViewBtn').classList.toggle('active', mode === 'list');
+            
+            renderAwards();
+        }
+
+        // Load more awards
+        function loadMoreAwards() {
+            currentPage++;
+            renderAwards();
+        }
+
+        // Update results count
+        function updateResultsCount() {
+            const resultsCount = document.getElementById('resultsCount');
+            const displayedCount = Math.min(currentPage * itemsPerPage, filteredAwards.length);
+            resultsCount.textContent = `عرض ${displayedCount} من أصل ${filteredAwards.length} جائزة`;
+        }
+
+        // Helper functions
+        function getStatusText(status) {
+            const statusTexts = {
+                'open': 'مفتوحة',
+                'soon': 'قريباً',
+                'closed': 'مغلقة'
+            };
+            return statusTexts[status] || status;
+        }
+
+        function getScopeText(scope) {
+            const scopeTexts = {
+                'local': 'محلي',
+                'national': 'وطني',
+                'regional': 'إقليمي',
+                'international': 'دولي'
+            };
+            return scopeTexts[scope] || scope;
+        }
+
+        function getCategoryText(category) {
+            const categoryTexts = {
+                'individuals': 'أفراد',
+                'organizations': 'منظمات',
+                'teams': 'فرق العمل',
+                'students': 'طلاب',
+                'researchers': 'باحثون',
+                'startups': 'شركات ناشئة',
+                'women': 'نساء',
+                'youth': 'شباب'
+            };
+            return categoryTexts[category] || category;
+        }
+
+        function getFieldText(field) {
+            const fieldTexts = {
+                'education': 'التعليم والتدريب',
+                'health': 'الصحة والطب',
+                'innovation': 'الابتكار والتقنية',
+                'culture': 'الثقافة والفنون',
+                'environment': 'البيئة والاستدامة',
+                'business': 'الأعمال وريادة الأعمال'
+            };
+            return fieldTexts[field] || field;
+        }
+
+        function formatCurrency(amount) {
+            if (amount >= 1000000) {
+                return `${(amount / 1000000).toFixed(1)} مليون ر.س`;
+            } else if (amount >= 1000) {
+                return `${(amount / 1000).toFixed(0)},000 ر.س`;
+            } else {
+                return `${amount} ر.س`;
+            }
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const options = { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                calendar: 'gregory'
+            };
+            return date.toLocaleDateString('ar-SA', options);
+        }
+
+        // Perform search
+        function performSearch() {
+            applyFilters();
+        }
+    </script>
+</body>
+</html>
