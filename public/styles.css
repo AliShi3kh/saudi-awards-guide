@@ -865,3 +865,165 @@ h6 { font-size: var(--font-size-base); }
     color: white;
     transform: scale(1.05);
 }
+
+/* Professional Hover Effects */
+.btn, .btn-primary, .btn-secondary, .btn-outline-primary, .btn-outline-secondary {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: none;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.8s ease;
+    z-index: 1;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.btn:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+/* Icon Hover Effects */
+.bi, i[class*="bi-"], .fa, i[class*="fa-"] {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn:hover .bi, .btn:hover i[class*="bi-"], .btn:hover .fa, .btn:hover i[class*="fa-"],
+.nav-link:hover .bi, .nav-link:hover i[class*="bi-"], .nav-link:hover .fa, .nav-link:hover i[class*="fa-"] {
+    transform: translateX(3px) scale(1.1);
+}
+
+/* Card Hover Enhancements */
+.card, .card-award {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.card:hover, .card-award:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+/* Navigation Hover Effects */
+.nav-link {
+    position: relative;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    background: rgba(var(--color-primary-rgb), 0.1);
+    color: var(--color-primary);
+}
+
+/* Badge Hover Effects */
+.badge {
+    transition: all 0.3s ease;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.badge:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Search and Filter Hover Effects */
+.form-control, .form-select {
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    border: 2px solid transparent;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 0.25rem rgba(var(--color-primary-rgb), 0.15);
+    transform: scale(1.02);
+}
+
+/* Pagination Hover Effects */
+.page-link {
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    margin: 0 2px;
+    border: none;
+}
+
+.page-link:hover {
+    background: var(--color-primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Social Icons Hover */
+.social-link {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-link:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* Header Text Alignment */
+.awards-header, .news-header, .services-header, .consultants-header, .contact-header {
+    text-align: right;
+    direction: rtl;
+}
+
+.awards-header h1, .news-header h1, .services-header h1, .consultants-header h1, .contact-header h1 {
+    text-align: right;
+}
+
+.awards-header p, .news-header p, .services-header p, .consultants-header p, .contact-header p {
+    text-align: right;
+}
+
+.awards-header .btn, .news-header .btn, .services-header .btn, .consultants-header .btn, .contact-header .btn {
+    margin-right: 0;
+    margin-left: auto;
+}
