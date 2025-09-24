@@ -91,12 +91,11 @@
 
         /* Header Styles */
         .awards-header {
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-light)), url('img/hero-awards.jpg');
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('img/hero-awards.jpg');
             background-size: cover;
             background-position: center;
-            background-blend-mode: overlay;
             color: white;
-            padding: 3rem 0;
+            padding: 6rem 0 4rem;
             position: relative;
             overflow: hidden;
             margin-top: 76px;
@@ -109,7 +108,13 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, rgba(40, 167, 69, 0.3), rgba(40, 167, 69, 0.1));
+            z-index: 1;
+        }
+
+        .awards-header .container {
+            position: relative;
+            z-index: 2;
         }
 
         .stats-grid {
