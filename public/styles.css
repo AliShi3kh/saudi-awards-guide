@@ -535,3 +535,333 @@ h6 { font-size: var(--font-size-base); }
 .stat-counter h3 {
     color: var(--color-secondary);
 }
+
+/* Awards Directory Enhancements */
+.awards-directory-header {
+    background: linear-gradient(135deg, var(--color-primary), hsl(142, 65%, 35%));
+}
+
+.directory-stats .stat-item h3 {
+    color: var(--color-secondary);
+}
+
+.quick-search-bar {
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-fast);
+}
+
+.quick-search-bar:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.advanced-filters {
+    border: 1px solid var(--color-border);
+}
+
+.filter-actions {
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.active-filters .badge {
+    background-color: var(--color-primary);
+    color: white;
+    margin-right: var(--spacing-xs);
+    margin-bottom: var(--spacing-xs);
+}
+
+.results-controls {
+    border: 1px solid var(--color-border);
+}
+
+.award-item {
+    transition: all var(--transition-normal);
+}
+
+.award-item[style*="none"] {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+/* View Toggle Buttons */
+.view-toggle .btn {
+    transition: all var(--transition-fast);
+}
+
+.view-toggle .btn.active {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+}
+
+/* Sort Options */
+.sort-options .form-select {
+    border-color: var(--color-border);
+    transition: border-color var(--transition-fast);
+}
+
+.sort-options .form-select:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+/* Awards List View */
+.awards-list .award-item-list {
+    background: white;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+    border: 1px solid var(--color-border);
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-lg);
+}
+
+.awards-list .award-item-list:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+/* Improved Card Hover Effects */
+.card-award:hover .card-award__title {
+    color: var(--color-primary);
+}
+
+.card-award:hover .badge-status {
+    transform: scale(1.05);
+}
+
+/* Loading Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spin {
+    animation: spin 1s linear infinite;
+}
+
+/* Filter Form Enhancements */
+.form-select:focus,
+.form-control:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.form-label {
+    color: var(--color-text);
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Advanced Filters Collapse */
+.collapse {
+    transition: all var(--transition-normal);
+}
+
+.collapse.show {
+    animation: fadeIn 0.3s ease-in;
+}
+
+/* Responsive Improvements */
+@media (max-width: 768px) {
+    .awards-directory-header .row {
+        text-align: center;
+    }
+    
+    .directory-stats {
+        margin-top: var(--spacing-lg);
+    }
+    
+    .quick-search-bar .row {
+        margin: 0;
+    }
+    
+    .quick-search-bar .col-lg-6,
+    .quick-search-bar .col-lg-3 {
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .results-controls .row {
+        text-align: center;
+    }
+    
+    .results-controls .col-lg-6:last-child {
+        margin-top: var(--spacing-md);
+    }
+    
+    .sort-options,
+    .view-toggle {
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .advanced-filters .row .col-md-3 {
+        margin-bottom: var(--spacing-sm);
+    }
+}
+
+/* Search Input Enhancements */
+.input-group-lg .form-control {
+    font-size: 1.1rem;
+    padding: 0.75rem 1rem;
+}
+
+.input-group-lg .btn {
+    padding: 0.75rem 1.5rem;
+}
+
+/* Badge Improvements */
+.badge {
+    font-size: 0.75rem;
+    padding: 0.375rem 0.75rem;
+    border-radius: var(--radius-sm);
+}
+
+.badge.bg-success {
+    background-color: var(--color-success) !important;
+}
+
+.badge.bg-warning {
+    background-color: var(--color-warning) !important;
+    color: var(--color-text) !important;
+}
+
+.badge.bg-info {
+    background-color: hsl(195, 100%, 50%) !important;
+}
+
+.badge.bg-danger {
+    background-color: var(--color-danger) !important;
+}
+
+/* Countdown Timer */
+.countdown-timer {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.time-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 60px;
+}
+
+/* Favorite Button Animation */
+.btn-outline-primary:hover {
+    transform: scale(1.05);
+    transition: transform var(--transition-fast);
+}
+
+/* Load More Button */
+.btn-outline-primary.btn-lg {
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    font-weight: 600;
+    transition: all var(--transition-normal);
+}
+
+.btn-outline-primary.btn-lg:hover {
+    background-color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Enhanced Pagination */
+.pagination .page-link {
+    color: var(--color-primary);
+    border-color: var(--color-border);
+    transition: all var(--transition-fast);
+}
+
+.pagination .page-link:hover {
+    background-color: var(--color-muted);
+    border-color: var(--color-primary);
+    transform: translateY(-1px);
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+/* Quick Filters Enhancement */
+.quick-filters .btn {
+    border-radius: 20px;
+    padding: 0.375rem 1rem;
+    font-size: 0.875rem;
+    transition: all var(--transition-fast);
+}
+
+.quick-filters .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Status Indicator Improvements */
+.badge-status--open {
+    background: linear-gradient(45deg, var(--status-open), hsl(142, 65%, 30%));
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+    }
+}
+
+/* Improved Button Hierarchy */
+.card-award__footer .btn-primary {
+    background: linear-gradient(45deg, var(--color-primary), hsl(142, 65%, 30%));
+    border: none;
+    font-weight: 600;
+}
+
+.card-award__footer .btn-primary:hover {
+    background: linear-gradient(45deg, hsl(142, 65%, 30%), var(--color-primary));
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Meta Information Styling */
+.meta-item i {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Tag Field Improvements */
+.tag-field {
+    background: linear-gradient(45deg, var(--color-muted), hsl(50, 20%, 92%));
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-fast);
+}
+
+.tag-field:hover {
+    background: var(--color-primary);
+    color: white;
+    transform: scale(1.05);
+}

@@ -648,208 +648,670 @@
                     </ol>
                 </nav>
 
-                <div class="section-header mb-5">
-                    <h1 class="display-4 fw-bold">دليل الجوائز</h1>
-                    <p class="lead text-muted">اكتشف جميع الجوائز المتاحة مع فلترة متقدمة وبحث ذكي</p>
+                <!-- Page Header -->
+                <div class="awards-directory-header bg-primary text-white rounded-4 p-5 mb-5">
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <h1 class="display-4 fw-bold mb-3">دليل الجوائز الشامل</h1>
+                            <p class="lead mb-0">اكتشف أكثر من 350 جائزة في المملكة والمنطقة مع فلترة ذكية وبحث متقدم</p>
+                        </div>
+                        <div class="col-lg-4 text-center">
+                            <div class="directory-stats">
+                                <div class="row g-3">
+                                    <div class="col-6">
+                                        <div class="stat-item">
+                                            <h3 class="h2 fw-bold mb-1">350+</h3>
+                                            <p class="small mb-0 opacity-75">جائزة مدرجة</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="stat-item">
+                                            <h3 class="h2 fw-bold mb-1">85</h3>
+                                            <p class="small mb-0 opacity-75">مفتوحة حالياً</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="stat-item">
+                                            <h3 class="h2 fw-bold mb-1">25</h3>
+                                            <p class="small mb-0 opacity-75">تنتهي قريباً</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="stat-item">
+                                            <h3 class="h2 fw-bold mb-1">15</h3>
+                                            <p class="small mb-0 opacity-75">جائزة جديدة</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Advanced Filters -->
-                <div class="filters-section bg-light p-4 rounded-4 mb-5">
-                    <form class="filters-form">
-                        <div class="row g-3">
-                            <div class="col-md-3">
-                                <label class="form-label fw-semibold">البحث</label>
-                                <input type="search" class="form-control" placeholder="اسم الجائزة أو الجهة...">
+                <!-- Advanced Search & Filters -->
+                <div class="search-filters-section mb-5">
+                    <!-- Quick Search -->
+                    <div class="quick-search-bar bg-white rounded-4 shadow-sm p-4 mb-4">
+                        <div class="row g-3 align-items-end">
+                            <div class="col-lg-6">
+                                <label class="form-label fw-semibold text-muted small">البحث السريع</label>
+                                <div class="input-group input-group-lg">
+                                    <input type="search" id="quickSearch" class="form-control border-0 bg-light" 
+                                           placeholder="ابحث عن اسم الجائزة، الجهة المانحة، أو الكلمات المفتاحية...">
+                                    <button class="btn btn-primary px-4" type="button" onclick="performSearch()">
+                                        <i class="bi bi-search"></i>
+                                    </button>
+                                </div>
                             </div>
-                            <div class="col-md-2">
-                                <label class="form-label fw-semibold">المجال</label>
-                                <select class="form-select">
-                                    <option value="">جميع المجالات</option>
-                                    <option value="education">التعليم</option>
-                                    <option value="health">الصحة</option>
-                                    <option value="innovation">الابتكار</option>
-                                    <option value="culture">الثقافة</option>
-                                    <option value="environment">البيئة</option>
-                                    <option value="business">الأعمال</option>
-                                </select>
-                            </div>
-                            <div class="col-md-2">
-                                <label class="form-label fw-semibold">الحالة</label>
-                                <select class="form-select">
+                            <div class="col-lg-3">
+                                <label class="form-label fw-semibold text-muted small">الحالة</label>
+                                <select class="form-select form-select-lg" id="statusFilter" onchange="applyFilters()">
                                     <option value="">جميع الحالات</option>
-                                    <option value="open">مفتوحة</option>
-                                    <option value="soon">قريباً</option>
+                                    <option value="open">مفتوحة للتقديم</option>
+                                    <option value="soon">تفتح قريباً</option>
+                                    <option value="closing">تنتهي قريباً</option>
                                     <option value="closed">مغلقة</option>
                                 </select>
                             </div>
-                            <div class="col-md-2">
-                                <label class="form-label fw-semibold">النطاق</label>
-                                <select class="form-select">
-                                    <option value="">جميع النطاقات</option>
-                                    <option value="national">وطني</option>
-                                    <option value="regional">إقليمي</option>
-                                    <option value="international">دولي</option>
-                                </select>
-                            </div>
-                            <div class="col-md-2">
-                                <label class="form-label fw-semibold">الفئة</label>
-                                <select class="form-select">
-                                    <option value="">جميع الفئات</option>
-                                    <option value="individuals">أفراد</option>
-                                    <option value="organizations">منظمات</option>
-                                    <option value="teams">فرق</option>
-                                    <option value="students">طلاب</option>
-                                </select>
-                            </div>
-                            <div class="col-md-1">
-                                <label class="form-label fw-semibold">&nbsp;</label>
-                                <button type="submit" class="btn btn-primary w-100">
-                                    <i class="bi bi-search"></i>
+                            <div class="col-lg-3">
+                                <button class="btn btn-outline-primary btn-lg w-100" data-bs-toggle="collapse" data-bs-target="#advancedFilters">
+                                    <i class="bi bi-funnel me-2"></i>
+                                    فلاتر متقدمة
                                 </button>
                             </div>
                         </div>
-                    </form>
-                </div>
-
-                <!-- Results Header -->
-                <div class="results-header d-flex justify-content-between align-items-center mb-4">
-                    <div>
-                        <h5 class="mb-1">عرض 15 من أصل 347 جائزة</h5>
-                        <p class="text-muted small mb-0">الفلاتر النشطة: مفتوحة للتقديم</p>
                     </div>
-                    <div class="d-flex gap-2">
-                        <select class="form-select form-select-sm" style="width: auto;">
-                            <option>الأحدث</option>
-                            <option>الأقرب للإغلاق</option>
-                            <option>الأعلى قيمة</option>
-                            <option>الأبجدية</option>
-                        </select>
-                        <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-outline-secondary btn-sm active">
-                                <i class="bi bi-grid-3x3-gap"></i>
-                            </button>
-                            <button type="button" class="btn btn-outline-secondary btn-sm">
-                                <i class="bi bi-list"></i>
-                            </button>
+
+                    <!-- Advanced Filters (Collapsible) -->
+                    <div class="collapse" id="advancedFilters">
+                        <div class="advanced-filters bg-light rounded-4 p-4">
+                            <h5 class="fw-bold mb-3">
+                                <i class="bi bi-sliders me-2"></i>
+                                فلاتر متقدمة
+                            </h5>
+                            <form class="filters-form">
+                                <div class="row g-3 mb-4">
+                                    <div class="col-md-3">
+                                        <label class="form-label fw-semibold">المجال</label>
+                                        <select class="form-select" id="fieldFilter" onchange="applyFilters()">
+                                            <option value="">جميع المجالات</option>
+                                            <option value="education">التعليم والتدريب</option>
+                                            <option value="health">الصحة والطب</option>
+                                            <option value="innovation">الابتكار والتقنية</option>
+                                            <option value="culture">الثقافة والفنون</option>
+                                            <option value="environment">البيئة والاستدامة</option>
+                                            <option value="business">الأعمال وريادة الأعمال</option>
+                                            <option value="social">التنمية المجتمعية</option>
+                                            <option value="media">الإعلام والاتصال</option>
+                                            <option value="sports">الرياضة واللياقة</option>
+                                            <option value="science">العلوم والبحث</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label fw-semibold">النطاق الجغرافي</label>
+                                        <select class="form-select" id="scopeFilter" onchange="applyFilters()">
+                                            <option value="">جميع النطاقات</option>
+                                            <option value="local">محلي</option>
+                                            <option value="national">وطني</option>
+                                            <option value="regional">إقليمي</option>
+                                            <option value="international">دولي</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label fw-semibold">الفئة المستهدفة</label>
+                                        <select class="form-select" id="categoryFilter" onchange="applyFilters()">
+                                            <option value="">جميع الفئات</option>
+                                            <option value="individuals">أفراد</option>
+                                            <option value="organizations">منظمات</option>
+                                            <option value="teams">فرق العمل</option>
+                                            <option value="students">طلاب</option>
+                                            <option value="researchers">باحثون</option>
+                                            <option value="startups">شركات ناشئة</option>
+                                            <option value="women">نساء</option>
+                                            <option value="youth">شباب</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label fw-semibold">قيمة الجائزة</label>
+                                        <select class="form-select" id="valueFilter" onchange="applyFilters()">
+                                            <option value="">جميع القيم</option>
+                                            <option value="under-50k">أقل من 50,000 ر.س</option>
+                                            <option value="50k-100k">50,000 - 100,000 ر.س</option>
+                                            <option value="100k-500k">100,000 - 500,000 ر.س</option>
+                                            <option value="500k-1m">500,000 - 1,000,000 ر.س</option>
+                                            <option value="over-1m">أكثر من 1,000,000 ر.س</option>
+                                            <option value="non-monetary">جوائز غير مالية</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row g-3 mb-4">
+                                    <div class="col-md-3">
+                                        <label class="form-label fw-semibold">الجهة المانحة</label>
+                                        <select class="form-select" id="organizerFilter" onchange="applyFilters()">
+                                            <option value="">جميع الجهات</option>
+                                            <option value="government">جهات حكومية</option>
+                                            <option value="private">قطاع خاص</option>
+                                            <option value="nonprofit">منظمات غير ربحية</option>
+                                            <option value="international">منظمات دولية</option>
+                                            <option value="universities">جامعات</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label fw-semibold">الدورية</label>
+                                        <select class="form-select" id="frequencyFilter" onchange="applyFilters()">
+                                            <option value="">جميع الأنواع</option>
+                                            <option value="annual">سنوي</option>
+                                            <option value="biannual">نصف سنوي</option>
+                                            <option value="quarterly">ربع سنوي</option>
+                                            <option value="monthly">شهري</option>
+                                            <option value="one-time">لمرة واحدة</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label fw-semibold">آخر موعد للتقديم</label>
+                                        <select class="form-select" id="deadlineFilter" onchange="applyFilters()">
+                                            <option value="">جميع المواعيد</option>
+                                            <option value="week">خلال أسبوع</option>
+                                            <option value="month">خلال شهر</option>
+                                            <option value="quarter">خلال 3 أشهر</option>
+                                            <option value="year">خلال سنة</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label fw-semibold">لغة التقديم</label>
+                                        <select class="form-select" id="languageFilter" onchange="applyFilters()">
+                                            <option value="">جميع اللغات</option>
+                                            <option value="arabic">العربية</option>
+                                            <option value="english">الإنجليزية</option>
+                                            <option value="both">العربية والإنجليزية</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="filter-actions d-flex justify-content-between align-items-center">
+                                    <div class="active-filters" id="activeFilters">
+                                        <!-- Active filters will be displayed here -->
+                                    </div>
+                                    <div class="filter-buttons">
+                                        <button type="button" class="btn btn-outline-secondary me-2" onclick="clearAllFilters()">
+                                            <i class="bi bi-x-circle me-1"></i>
+                                            مسح الفلاتر
+                                        </button>
+                                        <button type="button" class="btn btn-primary" onclick="applyFilters()">
+                                            <i class="bi bi-check-circle me-1"></i>
+                                            تطبيق الفلاتر
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
 
-                <!-- Awards Grid -->
-                <div class="row g-4 mb-5">
-                    <!-- Repeating award cards with more detailed content -->
-                    <div class="col-lg-4 col-md-6">
-                        <article class="card-award h-100">
-                            <div class="card-award__header">
-                                <div class="d-flex justify-content-between align-items-start mb-3">
-                                    <span class="badge-status badge-status--open">مفتوحة</span>
-                                    <div class="d-flex gap-1">
-                                        <span class="badge bg-success">وطني</span>
-                                        <span class="badge bg-secondary">سنوي</span>
-                                    </div>
+                <!-- Results Header & Controls -->
+                <div class="results-controls bg-white rounded-4 shadow-sm p-4 mb-4">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="results-info">
+                                <h5 class="mb-1" id="resultsCount">عرض 24 من أصل 347 جائزة</h5>
+                                <div class="active-filters-summary" id="activeFiltersSummary">
+                                    <span class="badge bg-primary me-1">مفتوحة للتقديم</span>
+                                    <span class="badge bg-secondary me-1">التعليم</span>
+                                    <button class="btn btn-link btn-sm p-0 text-decoration-none" onclick="clearAllFilters()">
+                                        مسح جميع الفلاتر
+                                    </button>
                                 </div>
-                                <h3 class="card-award__title">جائزة وزارة التعليم للتميز</h3>
-                                <p class="card-award__organization">وزارة التعليم - المملكة العربية السعودية</p>
                             </div>
-                            
-                            <div class="card-award__content">
-                                <div class="card-award__meta mb-3">
-                                    <div class="meta-item">
-                                        <i class="bi bi-calendar-event text-primary"></i>
-                                        <span>آخر موعد: 30 نوفمبر 2024</span>
-                                    </div>
-                                    <div class="meta-item">
-                                        <i class="bi bi-cash-coin text-success"></i>
-                                        <span>حتى 300,000 ر.س</span>
-                                    </div>
-                                    <div class="meta-item">
-                                        <i class="bi bi-people text-info"></i>
-                                        <span>معلمين ومربين</span>
-                                    </div>
-                                    <div class="meta-item">
-                                        <i class="bi bi-star text-warning"></i>
-                                        <span>الدورة 15</span>
-                                    </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="d-flex justify-content-end align-items-center gap-3">
+                                <!-- Sort Options -->
+                                <div class="sort-options">
+                                    <label class="form-label small text-muted mb-0 me-2">ترتيب حسب:</label>
+                                    <select class="form-select form-select-sm" style="width: auto;" id="sortOptions" onchange="applySorting()">
+                                        <option value="newest">الأحدث</option>
+                                        <option value="deadline">الأقرب للإغلاق</option>
+                                        <option value="value-high">الأعلى قيمة</option>
+                                        <option value="value-low">الأقل قيمة</option>
+                                        <option value="alphabetical">الأبجدية</option>
+                                        <option value="popularity">الأكثر شعبية</option>
+                                    </select>
                                 </div>
                                 
-                                <div class="card-award__tags mb-3">
-                                    <span class="tag-field">تعليم</span>
-                                    <span class="tag-field">تميز</span>
-                                    <span class="tag-field">تطوير</span>
+                                <!-- View Toggle -->
+                                <div class="view-toggle">
+                                    <div class="btn-group" role="group" aria-label="خيارات العرض">
+                                        <button type="button" class="btn btn-outline-secondary btn-sm active" onclick="setViewMode('grid')">
+                                            <i class="bi bi-grid-3x3-gap"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-outline-secondary btn-sm" onclick="setViewMode('list')">
+                                            <i class="bi bi-list"></i>
+                                        </button>
+                                    </div>
                                 </div>
-                                
-                                <p class="card-award__description">جائزة سنوية تهدف إلى تكريم المعلمين والمربين المتميزين في الأداء والإبداع والمساهمة في تطوير العملية التعليمية.</p>
                             </div>
-                            
-                            <div class="card-award__footer">
-                                <button class="btn btn-primary w-100" onclick="showAwardDetails('education-excellence')">عرض التفاصيل والتقديم</button>
-                            </div>
-                        </article>
+                        </div>
                     </div>
+                </div>
 
-                    <!-- More award cards would be here... -->
-                    <div class="col-lg-4 col-md-6">
-                        <article class="card-award h-100">
-                            <div class="card-award__header">
-                                <div class="d-flex justify-content-between align-items-start mb-3">
-                                    <span class="badge-status badge-status--soon">قريباً</span>
-                                    <div class="d-flex gap-1">
-                                        <span class="badge bg-info">دولي</span>
-                                        <span class="badge bg-warning">مميز</span>
+                <!-- Awards Grid/List -->
+                <div id="awardsContainer" class="awards-container">
+                    <div class="row g-4" id="awardsGrid">
+                        <!-- Award Card 1 -->
+                        <div class="col-lg-4 col-md-6 award-item" 
+                             data-field="education" 
+                             data-status="open" 
+                             data-scope="national" 
+                             data-category="individuals" 
+                             data-value="300000"
+                             data-deadline="2024-11-30"
+                             data-organizer="government">
+                            <article class="card-award h-100">
+                                <div class="card-award__header">
+                                    <div class="d-flex justify-content-between align-items-start mb-3">
+                                        <span class="badge-status badge-status--open">مفتوحة</span>
+                                        <div class="d-flex gap-1">
+                                            <span class="badge bg-success">وطني</span>
+                                            <span class="badge bg-secondary">سنوي</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <h3 class="card-award__title">جائزة زايد للاستدامة</h3>
-                                <p class="card-award__organization">دولة الإمارات العربية المتحدة</p>
-                            </div>
-                            
-                            <div class="card-award__content">
-                                <div class="card-award__meta mb-3">
-                                    <div class="meta-item">
-                                        <i class="bi bi-calendar-event text-primary"></i>
-                                        <span>آخر موعد: 15 مارس 2025</span>
-                                    </div>
-                                    <div class="meta-item">
-                                        <i class="bi bi-cash-coin text-success"></i>
-                                        <span>600,000$ دولار</span>
-                                    </div>
-                                    <div class="meta-item">
-                                        <i class="bi bi-globe text-info"></i>
-                                        <span>مشاريع مستدامة</span>
-                                    </div>
-                                    <div class="meta-item">
-                                        <i class="bi bi-star text-warning"></i>
-                                        <span>الدورة 16</span>
-                                    </div>
+                                    <h3 class="card-award__title">جائزة وزارة التعليم للتميز</h3>
+                                    <p class="card-award__organization">وزارة التعليم - المملكة العربية السعودية</p>
                                 </div>
                                 
-                                <div class="card-award__tags mb-3">
-                                    <span class="tag-field">استدامة</span>
-                                    <span class="tag-field">بيئة</span>
-                                    <span class="tag-field">ابتكار</span>
+                                <div class="card-award__content">
+                                    <div class="card-award__meta mb-3">
+                                        <div class="meta-item">
+                                            <i class="bi bi-calendar-event text-primary"></i>
+                                            <span>آخر موعد: 30 نوفمبر 2024</span>
+                                        </div>
+                                        <div class="meta-item">
+                                            <i class="bi bi-cash-coin text-success"></i>
+                                            <span>حتى 300,000 ر.س</span>
+                                        </div>
+                                        <div class="meta-item">
+                                            <i class="bi bi-people text-info"></i>
+                                            <span>معلمين ومربين</span>
+                                        </div>
+                                        <div class="meta-item">
+                                            <i class="bi bi-star text-warning"></i>
+                                            <span>الدورة 15</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card-award__tags mb-3">
+                                        <span class="tag-field">تعليم</span>
+                                        <span class="tag-field">تميز</span>
+                                        <span class="tag-field">تطوير</span>
+                                    </div>
+                                    
+                                    <p class="card-award__description">جائزة سنوية تهدف إلى تكريم المعلمين والمربين المتميزين في الأداء والإبداع والمساهمة في تطوير العملية التعليمية.</p>
                                 </div>
                                 
-                                <p class="card-award__description">جائزة عالمية تكرم المشاريع والمبادرات المبتكرة في مجال الاستدامة والطاقة المتجددة والحلول البيئية.</p>
-                            </div>
-                            
-                            <div class="card-award__footer">
-                                <button class="btn btn-primary w-100" onclick="showAwardDetails('zayed-sustainability')">عرض التفاصيل والتقديم</button>
-                            </div>
-                        </article>
+                                <div class="card-award__footer">
+                                    <div class="d-flex gap-2">
+                                        <button class="btn btn-primary flex-fill" onclick="showAwardDetails('education-excellence')">
+                                            <i class="bi bi-eye me-1"></i>
+                                            عرض التفاصيل
+                                        </button>
+                                        <button class="btn btn-outline-primary" onclick="addToFavorites('education-excellence')">
+                                            <i class="bi bi-heart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Award Card 2 -->
+                        <div class="col-lg-4 col-md-6 award-item" 
+                             data-field="environment" 
+                             data-status="soon" 
+                             data-scope="international" 
+                             data-category="organizations" 
+                             data-value="600000"
+                             data-deadline="2025-03-15"
+                             data-organizer="international">
+                            <article class="card-award h-100">
+                                <div class="card-award__header">
+                                    <div class="d-flex justify-content-between align-items-start mb-3">
+                                        <span class="badge-status badge-status--soon">قريباً</span>
+                                        <div class="d-flex gap-1">
+                                            <span class="badge bg-info">دولي</span>
+                                            <span class="badge bg-warning">مميز</span>
+                                        </div>
+                                    </div>
+                                    <h3 class="card-award__title">جائزة زايد للاستدامة</h3>
+                                    <p class="card-award__organization">دولة الإمارات العربية المتحدة</p>
+                                </div>
+                                
+                                <div class="card-award__content">
+                                    <div class="card-award__meta mb-3">
+                                        <div class="meta-item">
+                                            <i class="bi bi-calendar-event text-primary"></i>
+                                            <span>آخر موعد: 15 مارس 2025</span>
+                                        </div>
+                                        <div class="meta-item">
+                                            <i class="bi bi-cash-coin text-success"></i>
+                                            <span>600,000$ دولار</span>
+                                        </div>
+                                        <div class="meta-item">
+                                            <i class="bi bi-globe text-info"></i>
+                                            <span>مشاريع مستدامة</span>
+                                        </div>
+                                        <div class="meta-item">
+                                            <i class="bi bi-star text-warning"></i>
+                                            <span>الدورة 16</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card-award__tags mb-3">
+                                        <span class="tag-field">استدامة</span>
+                                        <span class="tag-field">بيئة</span>
+                                        <span class="tag-field">ابتكار</span>
+                                    </div>
+                                    
+                                    <p class="card-award__description">جائزة عالمية تكرم المشاريع والمبادرات المبتكرة في مجال الاستدامة والطاقة المتجددة والحلول البيئية.</p>
+                                </div>
+                                
+                                <div class="card-award__footer">
+                                    <div class="d-flex gap-2">
+                                        <button class="btn btn-primary flex-fill" onclick="showAwardDetails('zayed-sustainability')">
+                                            <i class="bi bi-eye me-1"></i>
+                                            عرض التفاصيل
+                                        </button>
+                                        <button class="btn btn-outline-primary" onclick="addToFavorites('zayed-sustainability')">
+                                            <i class="bi bi-heart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Award Card 3 -->
+                        <div class="col-lg-4 col-md-6 award-item" 
+                             data-field="innovation" 
+                             data-status="open" 
+                             data-scope="national" 
+                             data-category="youth" 
+                             data-value="2000000"
+                             data-deadline="2024-12-20"
+                             data-organizer="government">
+                            <article class="card-award h-100">
+                                <div class="card-award__header">
+                                    <div class="d-flex justify-content-between align-items-start mb-3">
+                                        <span class="badge-status badge-status--open">مفتوحة</span>
+                                        <div class="d-flex gap-1">
+                                            <span class="badge bg-success">وطني</span>
+                                            <span class="badge bg-danger">ساخنة</span>
+                                        </div>
+                                    </div>
+                                    <h3 class="card-award__title">جائزة الأمير محمد بن سلمان للابتكار</h3>
+                                    <p class="card-award__organization">مؤسسة الأمير محمد بن سلمان الخيرية</p>
+                                </div>
+                                
+                                <div class="card-award__content">
+                                    <div class="card-award__meta mb-3">
+                                        <div class="meta-item">
+                                            <i class="bi bi-calendar-event text-primary"></i>
+                                            <span>آخر موعد: 20 ديسمبر 2024</span>
+                                        </div>
+                                        <div class="meta-item">
+                                            <i class="bi bi-cash-coin text-success"></i>
+                                            <span>حتى 2,000,000 ر.س</span>
+                                        </div>
+                                        <div class="meta-item">
+                                            <i class="bi bi-lightbulb text-info"></i>
+                                            <span>مبتكرين وشباب</span>
+                                        </div>
+                                        <div class="meta-item">
+                                            <i class="bi bi-star text-warning"></i>
+                                            <span>الدورة 4</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card-award__tags mb-3">
+                                        <span class="tag-field">ابتكار</span>
+                                        <span class="tag-field">تقنية</span>
+                                        <span class="tag-field">شباب</span>
+                                    </div>
+                                    
+                                    <p class="card-award__description">أكبر جائزة للابتكار في المملكة تستهدف الشباب المبدعين والمبتكرين في مختلف المجالات التقنية والعلمية.</p>
+                                </div>
+                                
+                                <div class="card-award__footer">
+                                    <div class="d-flex gap-2">
+                                        <button class="btn btn-primary flex-fill" onclick="showAwardDetails('prince-mohammed-innovation')">
+                                            <i class="bi bi-eye me-1"></i>
+                                            عرض التفاصيل
+                                        </button>
+                                        <button class="btn btn-outline-primary" onclick="addToFavorites('prince-mohammed-innovation')">
+                                            <i class="bi bi-heart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Award Card 4 -->
+                        <div class="col-lg-4 col-md-6 award-item" 
+                             data-field="health" 
+                             data-status="open" 
+                             data-scope="regional" 
+                             data-category="researchers" 
+                             data-value="500000"
+                             data-deadline="2024-12-15"
+                             data-organizer="government">
+                            <article class="card-award h-100">
+                                <div class="card-award__header">
+                                    <div class="d-flex justify-content-between align-items-start mb-3">
+                                        <span class="badge-status badge-status--open">مفتوحة</span>
+                                        <div class="d-flex gap-1">
+                                            <span class="badge bg-warning">إقليمي</span>
+                                            <span class="badge bg-secondary">سنوي</span>
+                                        </div>
+                                    </div>
+                                    <h3 class="card-award__title">جائزة الصحة العربية للابتكار الطبي</h3>
+                                    <p class="card-award__organization">منظمة الصحة العالمية - المكتب الإقليمي</p>
+                                </div>
+                                
+                                <div class="card-award__content">
+                                    <div class="card-award__meta mb-3">
+                                        <div class="meta-item">
+                                            <i class="bi bi-calendar-event text-primary"></i>
+                                            <span>آخر موعد: 15 ديسمبر 2024</span>
+                                        </div>
+                                        <div class="meta-item">
+                                            <i class="bi bi-cash-coin text-success"></i>
+                                            <span>500,000 ر.س</span>
+                                        </div>
+                                        <div class="meta-item">
+                                            <i class="bi bi-heart-pulse text-info"></i>
+                                            <span>باحثين طبيين</span>
+                                        </div>
+                                        <div class="meta-item">
+                                            <i class="bi bi-star text-warning"></i>
+                                            <span>الدورة 8</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card-award__tags mb-3">
+                                        <span class="tag-field">صحة</span>
+                                        <span class="tag-field">طب</span>
+                                        <span class="tag-field">بحث علمي</span>
+                                    </div>
+                                    
+                                    <p class="card-award__description">تكرم الأبحاث والابتكارات الطبية المتميزة في المنطقة العربية والتي تساهم في تطوير الرعاية الصحية.</p>
+                                </div>
+                                
+                                <div class="card-award__footer">
+                                    <div class="d-flex gap-2">
+                                        <button class="btn btn-primary flex-fill" onclick="showAwardDetails('arab-health-innovation')">
+                                            <i class="bi bi-eye me-1"></i>
+                                            عرض التفاصيل
+                                        </button>
+                                        <button class="btn btn-outline-primary" onclick="addToFavorites('arab-health-innovation')">
+                                            <i class="bi bi-heart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Award Card 5 -->
+                        <div class="col-lg-4 col-md-6 award-item" 
+                             data-field="business" 
+                             data-status="open" 
+                             data-scope="national" 
+                             data-category="startups" 
+                             data-value="1000000"
+                             data-deadline="2024-11-25"
+                             data-organizer="private">
+                            <article class="card-award h-100">
+                                <div class="card-award__header">
+                                    <div class="d-flex justify-content-between align-items-start mb-3">
+                                        <span class="badge-status badge-status--open">مفتوحة</span>
+                                        <div class="d-flex gap-1">
+                                            <span class="badge bg-success">وطني</span>
+                                            <span class="badge bg-info">شركات ناشئة</span>
+                                        </div>
+                                    </div>
+                                    <h3 class="card-award__title">جائزة بنك الراجحي لريادة الأعمال</h3>
+                                    <p class="card-award__organization">بنك الراجحي - المملكة العربية السعودية</p>
+                                </div>
+                                
+                                <div class="card-award__content">
+                                    <div class="card-award__meta mb-3">
+                                        <div class="meta-item">
+                                            <i class="bi bi-calendar-event text-primary"></i>
+                                            <span>آخر موعد: 25 نوفمبر 2024</span>
+                                        </div>
+                                        <div class="meta-item">
+                                            <i class="bi bi-cash-coin text-success"></i>
+                                            <span>1,000,000 ر.س</span>
+                                        </div>
+                                        <div class="meta-item">
+                                            <i class="bi bi-building text-info"></i>
+                                            <span>شركات ناشئة</span>
+                                        </div>
+                                        <div class="meta-item">
+                                            <i class="bi bi-star text-warning"></i>
+                                            <span>الدورة 6</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card-award__tags mb-3">
+                                        <span class="tag-field">ريادة أعمال</span>
+                                        <span class="tag-field">مالية</span>
+                                        <span class="tag-field">ابتكار</span>
+                                    </div>
+                                    
+                                    <p class="card-award__description">تدعم الشركات الناشئة والمشاريع الريادية المبتكرة في المجال المالي والتقني مع برنامج حاضنة شامل.</p>
+                                </div>
+                                
+                                <div class="card-award__footer">
+                                    <div class="d-flex gap-2">
+                                        <button class="btn btn-primary flex-fill" onclick="showAwardDetails('rajhi-entrepreneurship')">
+                                            <i class="bi bi-eye me-1"></i>
+                                            عرض التفاصيل
+                                        </button>
+                                        <button class="btn btn-outline-primary" onclick="addToFavorites('rajhi-entrepreneurship')">
+                                            <i class="bi bi-heart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Award Card 6 -->
+                        <div class="col-lg-4 col-md-6 award-item" 
+                             data-field="culture" 
+                             data-status="closed" 
+                             data-scope="international" 
+                             data-category="individuals" 
+                             data-value="300000"
+                             data-deadline="2024-10-30"
+                             data-organizer="nonprofit">
+                            <article class="card-award h-100">
+                                <div class="card-award__header">
+                                    <div class="d-flex justify-content-between align-items-start mb-3">
+                                        <span class="badge-status badge-status--closed">مغلقة</span>
+                                        <div class="d-flex gap-1">
+                                            <span class="badge bg-info">دولي</span>
+                                            <span class="badge bg-secondary">سنوي</span>
+                                        </div>
+                                    </div>
+                                    <h3 class="card-award__title">جائزة الشارقة للإبداع الثقافي</h3>
+                                    <p class="card-award__organization">دائرة الثقافة - إمارة الشارقة</p>
+                                </div>
+                                
+                                <div class="card-award__content">
+                                    <div class="card-award__meta mb-3">
+                                        <div class="meta-item">
+                                            <i class="bi bi-calendar-event text-danger"></i>
+                                            <span>انتهى: 30 أكتوبر 2024</span>
+                                        </div>
+                                        <div class="meta-item">
+                                            <i class="bi bi-cash-coin text-success"></i>
+                                            <span>300,000 درهم</span>
+                                        </div>
+                                        <div class="meta-item">
+                                            <i class="bi bi-palette text-info"></i>
+                                            <span>مبدعين ثقافيين</span>
+                                        </div>
+                                        <div class="meta-item">
+                                            <i class="bi bi-star text-warning"></i>
+                                            <span>الدورة 12</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card-award__tags mb-3">
+                                        <span class="tag-field">ثقافة</span>
+                                        <span class="tag-field">فنون</span>
+                                        <span class="tag-field">إبداع</span>
+                                    </div>
+                                    
+                                    <p class="card-award__description">تكرم المبدعين في مجالات الأدب والفنون والثقافة من مختلف أنحاء العالم العربي والعالم.</p>
+                                </div>
+                                
+                                <div class="card-award__footer">
+                                    <div class="d-flex gap-2">
+                                        <button class="btn btn-outline-secondary flex-fill" disabled>
+                                            <i class="bi bi-lock me-1"></i>
+                                            انتهت فترة التقديم
+                                        </button>
+                                        <button class="btn btn-outline-primary" onclick="addToFavorites('sharjah-cultural')">
+                                            <i class="bi bi-heart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
                     </div>
+                </div>
 
-                    <!-- Add more award cards as needed -->
+                <!-- Load More Button -->
+                <div class="text-center mt-5">
+                    <button class="btn btn-outline-primary btn-lg px-5" onclick="loadMoreAwards()">
+                        <i class="bi bi-arrow-down-circle me-2"></i>
+                        تحميل المزيد من الجوائز
+                    </button>
                 </div>
 
                 <!-- Pagination -->
-                <nav aria-label="صفحات النتائج">
+                <nav aria-label="صفحات النتائج" class="mt-5">
                     <ul class="pagination justify-content-center">
                         <li class="page-item disabled">
-                            <a class="page-link" href="#">السابق</a>
+                            <a class="page-link" href="#" tabindex="-1">السابق</a>
                         </li>
                         <li class="page-item active"><a class="page-link" href="#">1</a></li>
                         <li class="page-item"><a class="page-link" href="#">2</a></li>
                         <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">...</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item">
+                            <span class="page-link">...</span>
+                        </li>
                         <li class="page-item"><a class="page-link" href="#">23</a></li>
                         <li class="page-item">
                             <a class="page-link" href="#">التالي</a>
@@ -2464,6 +2926,58 @@
     
     <!-- Custom JavaScript -->
     <script>
+        // Global variables for awards management
+        let currentViewMode = 'grid';
+        let currentFilters = {};
+        let allAwards = [];
+        let filteredAwards = [];
+
+        // Award data (mock data - in real app this would come from API)
+        const awardsData = {
+            'education-excellence': {
+                title: 'جائزة وزارة التعليم للتميز',
+                organization: 'وزارة التعليم - المملكة العربية السعودية',
+                field: 'التعليم والتدريب',
+                status: 'مفتوحة',
+                deadline: '30 نوفمبر 2024',
+                value: '300,000 ر.س',
+                scope: 'وطني',
+                description: 'جائزة سنوية تهدف إلى تكريم المعلمين والمربين المتميزين في الأداء والإبداع والمساهمة في تطوير العملية التعليمية',
+                eligibility: 'المعلمون والمربون في المملكة العربية السعودية',
+                requirements: ['خبرة لا تقل عن 5 سنوات', 'تقييم ممتاز في آخر 3 سنوات', 'مبادرات تطويرية موثقة'],
+                categories: ['أفضل معلم', 'أفضل مشرف تربوي', 'أفضل قائد مدرسة'],
+                website: 'https://www.moe.gov.sa'
+            },
+            'zayed-sustainability': {
+                title: 'جائزة زايد للاستدامة',
+                organization: 'دولة الإمارات العربية المتحدة',
+                field: 'البيئة والاستدامة',
+                status: 'قريباً',
+                deadline: '15 مارس 2025',
+                value: '600,000 دولار',
+                scope: 'دولي',
+                description: 'جائزة عالمية تكرم المشاريع والمبادرات المبتكرة في مجال الاستدامة والطاقة المتجددة والحلول البيئية',
+                eligibility: 'منظمات ومشاريع من جميع أنحاء العالم',
+                requirements: ['مشروع مطبق وفعال', 'تأثير إيجابي على البيئة', 'قابلية التوسع والتطبيق'],
+                categories: ['الصحة', 'الطاقة', 'المياه', 'الغذاء', 'المدارس الثانوية العالمية'],
+                website: 'https://zayedsustainabilityprize.com'
+            },
+            'prince-mohammed-innovation': {
+                title: 'جائزة الأمير محمد بن سلمان للابتكار',
+                organization: 'مؤسسة الأمير محمد بن سلمان الخيرية',
+                field: 'الابتكار والتقنية',
+                status: 'مفتوحة',
+                deadline: '20 ديسمبر 2024',
+                value: '2,000,000 ر.س',
+                scope: 'وطني',
+                description: 'أكبر جائزة للابتكار في المملكة تستهدف الشباب المبدعين والمبتكرين في مختلف المجالات التقنية والعلمية',
+                eligibility: 'الشباب السعودي من سن 18-35 سنة',
+                requirements: ['مشروع ابتكاري أصيل', 'نموذج أولي أو تطبيق فعلي', 'خطة عمل واضحة'],
+                categories: ['الذكاء الاصطناعي', 'التقنية المالية', 'الصحة الرقمية', 'التعليم التقني'],
+                website: 'https://www.misk.org.sa'
+            }
+        };
+
         // Page navigation function
         function showPage(pageId) {
             // Hide all pages
@@ -2501,15 +3015,394 @@
             }
         }
 
-        // Show award details function
+        // Show award details function with dynamic content
         function showAwardDetails(awardId) {
+            const award = awardsData[awardId];
+            if (award) {
+                // Update the award details page with dynamic content
+                updateAwardDetailsPage(award);
+            }
             showPage('award-details');
-            // Here you would normally load specific award data based on awardId
-            console.log('Loading award details for:', awardId);
+        }
+
+        // Update award details page with dynamic content
+        function updateAwardDetailsPage(award) {
+            // Update breadcrumb
+            const breadcrumb = document.querySelector('#award-details-page .breadcrumb');
+            if (breadcrumb) {
+                breadcrumb.innerHTML = `
+                    <li class="breadcrumb-item"><a href="#" onclick="showPage('home')">الرئيسية</a></li>
+                    <li class="breadcrumb-item"><a href="#" onclick="showPage('awards-directory')">دليل الجوائز</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">${award.title}</li>
+                `;
+            }
+
+            // Update award hero section
+            const heroSection = document.querySelector('#award-details-page .award-hero');
+            if (heroSection) {
+                const statusClass = award.status === 'مفتوحة' ? 'success' : 
+                                   award.status === 'قريباً' ? 'warning' : 'secondary';
+                const scopeClass = award.scope === 'دولي' ? 'info' : 
+                                  award.scope === 'إقليمي' ? 'warning' : 'success';
+
+                heroSection.innerHTML = `
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <div class="d-flex gap-2 mb-3">
+                                <span class="badge bg-${statusClass}">${award.status}</span>
+                                <span class="badge bg-light text-dark">${award.scope}</span>
+                                <span class="badge bg-warning text-dark">سنوي</span>
+                            </div>
+                            <h1 class="display-4 fw-bold mb-3">${award.title}</h1>
+                            <p class="lead mb-3">${award.organization}</p>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bi bi-calendar-event me-2"></i>
+                                        <span>آخر موعد: ${award.deadline}</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bi bi-cash-coin me-2"></i>
+                                        <span>${award.value}</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bi bi-people me-2"></i>
+                                        <span>${award.eligibility}</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bi bi-globe me-2"></i>
+                                        <span>${award.field}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 text-center">
+                            <div class="countdown-timer bg-white text-primary rounded-3 p-4 mb-3">
+                                <h4 class="fw-bold mb-1">باقي على الإغلاق</h4>
+                                <div class="d-flex justify-content-center gap-2">
+                                    <div class="time-unit">
+                                        <div class="h3 fw-bold mb-0">45</div>
+                                        <small>يوم</small>
+                                    </div>
+                                    <div class="time-unit">
+                                        <div class="h3 fw-bold mb-0">12</div>
+                                        <small>ساعة</small>
+                                    </div>
+                                    <div class="time-unit">
+                                        <div class="h3 fw-bold mb-0">30</div>
+                                        <small>دقيقة</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="${award.website}" target="_blank" class="btn btn-warning btn-lg w-100 mb-2">
+                                <i class="bi bi-box-arrow-up-right me-2"></i>
+                                التقديم الرسمي
+                            </a>
+                            <button class="btn btn-outline-light w-100" onclick="addToFavorites('${award.title}')">
+                                <i class="bi bi-heart me-2"></i>
+                                إضافة للمفضلة
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Update overview section
+            const overviewSection = document.querySelector('#award-details-page .award-section');
+            if (overviewSection) {
+                overviewSection.querySelector('p.lead').textContent = award.description;
+            }
+        }
+
+        // Advanced filtering system
+        function applyFilters() {
+            const filters = {
+                search: document.getElementById('quickSearch')?.value.toLowerCase() || '',
+                status: document.getElementById('statusFilter')?.value || '',
+                field: document.getElementById('fieldFilter')?.value || '',
+                scope: document.getElementById('scopeFilter')?.value || '',
+                category: document.getElementById('categoryFilter')?.value || '',
+                value: document.getElementById('valueFilter')?.value || '',
+                organizer: document.getElementById('organizerFilter')?.value || '',
+                frequency: document.getElementById('frequencyFilter')?.value || '',
+                deadline: document.getElementById('deadlineFilter')?.value || '',
+                language: document.getElementById('languageFilter')?.value || ''
+            };
+
+            currentFilters = filters;
+            filterAwards();
+            updateActiveFilters();
+            updateResultsCount();
+        }
+
+        function filterAwards() {
+            const awardItems = document.querySelectorAll('.award-item');
+            let visibleCount = 0;
+
+            awardItems.forEach(item => {
+                let shouldShow = true;
+
+                // Apply search filter
+                if (currentFilters.search) {
+                    const title = item.querySelector('.card-award__title').textContent.toLowerCase();
+                    const org = item.querySelector('.card-award__organization').textContent.toLowerCase();
+                    const description = item.querySelector('.card-award__description').textContent.toLowerCase();
+                    
+                    if (!title.includes(currentFilters.search) && 
+                        !org.includes(currentFilters.search) && 
+                        !description.includes(currentFilters.search)) {
+                        shouldShow = false;
+                    }
+                }
+
+                // Apply status filter
+                if (currentFilters.status && item.dataset.status !== currentFilters.status) {
+                    shouldShow = false;
+                }
+
+                // Apply field filter
+                if (currentFilters.field && item.dataset.field !== currentFilters.field) {
+                    shouldShow = false;
+                }
+
+                // Apply scope filter
+                if (currentFilters.scope && item.dataset.scope !== currentFilters.scope) {
+                    shouldShow = false;
+                }
+
+                // Apply category filter
+                if (currentFilters.category && item.dataset.category !== currentFilters.category) {
+                    shouldShow = false;
+                }
+
+                // Apply value filter
+                if (currentFilters.value) {
+                    const value = parseInt(item.dataset.value);
+                    let valueInRange = true;
+                    
+                    switch (currentFilters.value) {
+                        case 'under-50k':
+                            valueInRange = value < 50000;
+                            break;
+                        case '50k-100k':
+                            valueInRange = value >= 50000 && value <= 100000;
+                            break;
+                        case '100k-500k':
+                            valueInRange = value >= 100000 && value <= 500000;
+                            break;
+                        case '500k-1m':
+                            valueInRange = value >= 500000 && value <= 1000000;
+                            break;
+                        case 'over-1m':
+                            valueInRange = value > 1000000;
+                            break;
+                    }
+                    
+                    if (!valueInRange) {
+                        shouldShow = false;
+                    }
+                }
+
+                // Apply organizer filter
+                if (currentFilters.organizer && item.dataset.organizer !== currentFilters.organizer) {
+                    shouldShow = false;
+                }
+
+                // Show/hide item with animation
+                if (shouldShow) {
+                    item.style.display = 'block';
+                    item.style.animation = 'fadeIn 0.3s ease-in';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            return visibleCount;
+        }
+
+        function updateActiveFilters() {
+            const activeFiltersContainer = document.getElementById('activeFiltersSummary');
+            if (!activeFiltersContainer) return;
+
+            let activeFiltersBadges = [];
+
+            Object.entries(currentFilters).forEach(([key, value]) => {
+                if (value && value !== '') {
+                    let displayText = value;
+                    
+                    // Convert filter values to readable Arabic text
+                    const filterTranslations = {
+                        'open': 'مفتوحة',
+                        'soon': 'قريباً',
+                        'closed': 'مغلقة',
+                        'education': 'التعليم',
+                        'health': 'الصحة',
+                        'innovation': 'الابتكار',
+                        'culture': 'الثقافة',
+                        'environment': 'البيئة',
+                        'business': 'الأعمال',
+                        'national': 'وطني',
+                        'regional': 'إقليمي',
+                        'international': 'دولي',
+                        'individuals': 'أفراد',
+                        'organizations': 'منظمات',
+                        'teams': 'فرق',
+                        'students': 'طلاب'
+                    };
+
+                    displayText = filterTranslations[value] || value;
+                    
+                    if (key !== 'search') {
+                        activeFiltersBadges.push(`<span class="badge bg-primary me-1">${displayText}</span>`);
+                    }
+                }
+            });
+
+            if (activeFiltersBadges.length > 0) {
+                activeFiltersContainer.innerHTML = activeFiltersBadges.join('') + 
+                    '<button class="btn btn-link btn-sm p-0 text-decoration-none ms-2" onclick="clearAllFilters()">مسح جميع الفلاتر</button>';
+            } else {
+                activeFiltersContainer.innerHTML = '<span class="text-muted">لا توجد فلاتر نشطة</span>';
+            }
+        }
+
+        function clearAllFilters() {
+            // Reset all filter inputs
+            const filterInputs = [
+                'quickSearch', 'statusFilter', 'fieldFilter', 'scopeFilter', 
+                'categoryFilter', 'valueFilter', 'organizerFilter', 
+                'frequencyFilter', 'deadlineFilter', 'languageFilter'
+            ];
+            
+            filterInputs.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.value = '';
+                }
+            });
+
+            currentFilters = {};
+            filterAwards();
+            updateActiveFilters();
+            updateResultsCount();
+        }
+
+        function updateResultsCount() {
+            const visibleItems = document.querySelectorAll('.award-item[style*="block"], .award-item:not([style*="none"])').length;
+            const totalItems = document.querySelectorAll('.award-item').length;
+            
+            const resultsCountElement = document.getElementById('resultsCount');
+            if (resultsCountElement) {
+                resultsCountElement.textContent = `عرض ${visibleItems} من أصل ${totalItems} جائزة`;
+            }
+        }
+
+        function performSearch() {
+            applyFilters();
+        }
+
+        function applySorting() {
+            const sortValue = document.getElementById('sortOptions')?.value;
+            const awardItems = Array.from(document.querySelectorAll('.award-item'));
+            const container = document.getElementById('awardsGrid');
+
+            awardItems.sort((a, b) => {
+                switch (sortValue) {
+                    case 'deadline':
+                        return new Date(a.dataset.deadline) - new Date(b.dataset.deadline);
+                    case 'value-high':
+                        return parseInt(b.dataset.value) - parseInt(a.dataset.value);
+                    case 'value-low':
+                        return parseInt(a.dataset.value) - parseInt(b.dataset.value);
+                    case 'alphabetical':
+                        return a.querySelector('.card-award__title').textContent.localeCompare(
+                            b.querySelector('.card-award__title').textContent, 'ar'
+                        );
+                    default:
+                        return 0;
+                }
+            });
+
+            // Re-append sorted items
+            awardItems.forEach(item => container.appendChild(item));
+        }
+
+        function setViewMode(mode) {
+            currentViewMode = mode;
+            const container = document.getElementById('awardsContainer');
+            const toggleButtons = document.querySelectorAll('.view-toggle .btn');
+            
+            // Update button states
+            toggleButtons.forEach(btn => btn.classList.remove('active'));
+            event.target.closest('button').classList.add('active');
+
+            if (mode === 'list') {
+                // Convert to list view
+                container.innerHTML = '<div id="awardsList" class="awards-list"></div>';
+                // Implementation for list view would go here
+            } else {
+                // Convert to grid view
+                container.innerHTML = '<div class="row g-4" id="awardsGrid"></div>';
+                // Re-populate grid - in real app, this would reload the awards
+            }
+        }
+
+        function addToFavorites(awardId) {
+            // Show feedback
+            const button = event.target;
+            const originalContent = button.innerHTML;
+            
+            button.innerHTML = '<i class="bi bi-heart-fill text-danger"></i>';
+            button.classList.add('btn-outline-danger');
+            
+            setTimeout(() => {
+                button.innerHTML = originalContent;
+                button.classList.remove('btn-outline-danger');
+            }, 2000);
+
+            // In real app, this would save to user's favorites
+            console.log('Added to favorites:', awardId);
+        }
+
+        function loadMoreAwards() {
+            // Simulate loading more awards
+            const button = event.target;
+            const originalText = button.innerHTML;
+            
+            button.innerHTML = '<i class="bi bi-arrow-clockwise spin me-2"></i>جاري التحميل...';
+            button.disabled = true;
+
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.disabled = false;
+                // In real app, this would load and append more awards
+            }, 2000);
         }
 
         // Form submissions
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize filters
+            updateResultsCount();
+
+            // Search input real-time filtering
+            const searchInput = document.getElementById('quickSearch');
+            if (searchInput) {
+                let searchTimeout;
+                searchInput.addEventListener('input', function() {
+                    clearTimeout(searchTimeout);
+                    searchTimeout = setTimeout(() => {
+                        applyFilters();
+                    }, 300);
+                });
+            }
+
             // Contact form submission
             const contactForms = document.querySelectorAll('.contact-form, form');
             contactForms.forEach(form => {
@@ -2542,7 +3435,7 @@
             filterForms.forEach(form => {
                 form.addEventListener('submit', function(e) {
                     e.preventDefault();
-                    console.log('Applying filters...');
+                    applyFilters();
                 });
             });
         });
