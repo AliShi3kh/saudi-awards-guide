@@ -21,12 +21,17 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">تخطي إلى المحتوى الرئيسي</a>
+
     <!-- ==================== NAVBAR ==================== -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <i class="bi bi-trophy-fill text-primary me-2"></i>
-                <span class="fw-bold">جوائز السعودية</span>
+                <span class="brand-icon">
+                    <i class="bi bi-trophy-fill"></i>
+                </span>
+                <span class="brand-text">جوائز السعودية</span>
             </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
@@ -46,11 +51,14 @@
                         <a class="nav-link" href="awards.html">دليل الجوائز</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="news.html">أخبار الجوائز</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="contact.html">اتصل بنا</a>
                     </li>
                 </ul>
                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addAwardModal">
-                    <i class="bi bi-plus-circle me-1"></i>
+                    <i class="bi bi-plus-lg"></i>
                     إضافة جائزة
                 </button>
             </div>
@@ -59,15 +67,27 @@
 
     <!-- ==================== PAGE HEADER ==================== -->
     <header class="page-header">
+        <div class="page-header__shapes">
+            <div class="page-header__shape page-header__shape--1"></div>
+            <div class="page-header__shape page-header__shape--2"></div>
+        </div>
         <div class="container">
-            <h1 class="page-header__title">اتصل بنا</h1>
-            <p class="page-header__subtitle">نسعد بتواصلك معنا</p>
+            <div class="page-header__content text-center">
+                <div class="page-header__badge">
+                    <i class="bi bi-envelope"></i>
+                    <span>تواصل معنا</span>
+                </div>
+                <h1 class="page-header__title">اتصل <span>بنا</span></h1>
+                <p class="page-header__subtitle">نسعد بتواصلك معنا ونرحب باستفساراتك وملاحظاتك</p>
+            </div>
         </div>
     </header>
 
     <!-- ==================== MAIN CONTENT ==================== -->
-    <main class="py-5">
-        <div class="container">
+    <main id="main-content">
+        <div class="main-wrapper">
+            <section class="section">
+                <div class="container">
             <div class="row g-5">
                 <!-- Contact Form -->
                 <div class="col-lg-7">
