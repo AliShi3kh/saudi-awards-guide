@@ -441,6 +441,31 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Handle service request form submission
+    const submitServiceBtn = document.getElementById('submitServiceBtn');
+    if (submitServiceBtn) {
+        submitServiceBtn.addEventListener('click', function() {
+            const form = document.getElementById('serviceRequestForm');
+            
+            // Check form validity
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+            
+            // Close modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('serviceRequestModal'));
+            modal.hide();
+            
+            // Reset form
+            form.reset();
+            
+            // Show success toast
+            const toast = new bootstrap.Toast(document.getElementById('successToast'));
+            toast.show();
+        });
+    }
+    
     // Initialize awards page if on awards.html
     initAwardsPage();
     
