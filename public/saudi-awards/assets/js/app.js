@@ -1,7 +1,7 @@
 /**
  * جوائز السعودية - Saudi Awards
  * Main JavaScript Application
- * Modern & Vibrant Design
+ * Professional & Modern Design
  */
 
 // ==================== AWARDS DATA ====================
@@ -128,7 +128,7 @@ function getSectorIcon(sector) {
 }
 
 /**
- * Create award card HTML - Modern Design
+ * Create award card HTML - Modern Professional Design
  */
 function createAwardCard(award) {
     const websiteBtn = award.website 
@@ -180,7 +180,7 @@ function createAwardCard(award) {
 }
 
 /**
- * Show award details in modal - Modern Professional Design
+ * Show award details in modal - Professional Modern Design
  */
 function showAwardDetails(awardId) {
     const award = awardsData.find(a => a.id === awardId);
@@ -190,68 +190,76 @@ function showAwardDetails(awardId) {
     const content = document.getElementById('awardDetailsContent');
     const visitBtn = document.getElementById('visitAwardSite');
     const modalTitle = document.getElementById('awardDetailsModalLabel');
+    const modalIcon = document.getElementById('awardModalIcon');
+    const modalBadges = document.getElementById('awardModalBadges');
     
+    // Update title and icon
     modalTitle.textContent = award.name;
+    const sectorIcon = getSectorIcon(award.sector);
+    if (modalIcon) {
+        modalIcon.innerHTML = `<i class="bi ${sectorIcon}"></i>`;
+    }
     
-    // Build badges HTML
-    let badgesHtml = `
-        <div class="award-details__badges">
-            <span class="award-details__badge award-details__badge--sector">
+    // Update badges
+    if (modalBadges) {
+        modalBadges.innerHTML = `
+            <span class="award-modal__badge">
                 <i class="bi bi-tag-fill"></i>
                 ${award.sector}
             </span>
-            <span class="award-details__badge award-details__badge--scope">
+            <span class="award-modal__badge">
                 <i class="bi bi-globe2"></i>
                 ${award.scope}
             </span>
-            <span class="award-details__badge award-details__badge--cycle">
+            <span class="award-modal__badge">
                 <i class="bi bi-calendar-event"></i>
                 ${award.cycle}
             </span>
-        </div>
-    `;
+        `;
+    }
     
-    // Build details items
-    const items = [
-        { label: 'الوصف', value: award.description, icon: 'bi-file-text' },
+    // Build description section
+    let descriptionHtml = '';
+    if (award.description) {
+        descriptionHtml = `
+            <div class="award-modal__description">
+                <p class="award-modal__description-text">${award.description}</p>
+            </div>
+        `;
+    }
+    
+    // Build details grid
+    const detailItems = [
         { label: 'الجهة المالكة', value: award.owner, icon: 'bi-building' },
         { label: 'الفئة المستهدفة', value: award.targetAudience, icon: 'bi-people' },
-        { label: 'نوع الفئة', value: award.targetType, icon: 'bi-person-badge' },
+        { label: 'نوع الفئة', value: award.targetType, icon: 'bi-person-badge', full: true },
         { label: 'قيمة الجائزة', value: formatValue(award.value), icon: 'bi-currency-dollar' },
-        { label: 'طريقة الترشيح', value: award.nominationMethod, icon: 'bi-clipboard-check' }
+        { label: 'دورة الجائزة', value: award.cycle, icon: 'bi-arrow-repeat' },
+        { label: 'طريقة الترشيح', value: award.nominationMethod, icon: 'bi-clipboard-check', full: true }
     ];
     
-    // Add website if exists
-    if (award.website) {
-        items.push({ 
-            label: 'الموقع الإلكتروني', 
-            value: `<a href="${award.website}" target="_blank" rel="noopener">${award.website}</a>`,
-            icon: 'bi-link-45deg'
-        });
-    }
+    let detailsHtml = '<div class="award-modal__details"><div class="award-modal__details-grid">';
     
-    // Add notes if exists
-    if (award.notes && award.notes.trim() !== '') {
-        items.push({ label: 'ملاحظات', value: award.notes, icon: 'bi-sticky' });
-    }
-    
-    let itemsHtml = '<div class="award-details__grid">';
-    items.forEach(item => {
+    detailItems.forEach(item => {
         if (item.value && item.value !== '—' && item.value !== 'غير موضح') {
-            itemsHtml += `
-                <div class="award-details__item">
-                    <div class="award-details__label">
+            const fullClass = item.full ? ' award-modal__detail-item--full' : '';
+            detailsHtml += `
+                <div class="award-modal__detail-item${fullClass}">
+                    <div class="award-modal__detail-icon">
                         <i class="bi ${item.icon}"></i>
-                        ${item.label}
                     </div>
-                    <div class="award-details__value">${item.value}</div>
+                    <div class="award-modal__detail-content">
+                        <div class="award-modal__detail-label">${item.label}</div>
+                        <div class="award-modal__detail-value">${item.value}</div>
+                    </div>
                 </div>
             `;
         }
     });
-    itemsHtml += '</div>';
     
-    content.innerHTML = badgesHtml + itemsHtml;
+    detailsHtml += '</div></div>';
+    
+    content.innerHTML = descriptionHtml + detailsHtml;
     
     // Update visit button
     if (award.website) {
