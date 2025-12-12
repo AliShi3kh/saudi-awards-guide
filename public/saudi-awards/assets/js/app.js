@@ -79,6 +79,21 @@ const awardsData = [
         nominationMethod: "الترشيح الذاتي، الترشيح من الجهات",
         website: "https://pap.tu.edu.sa/#aboutprize",
         notes: ""
+    },
+    {
+        id: 6,
+        name: "جائزة الملك عبدالعزيز للجودة",
+        description: "جائزة وطنية تهدف لتحفيز المنظمات على تطبيق معايير الجودة والتميز المؤسسي لتحسين الأداء ورفع مستوى التنافسية.",
+        sector: "قطاع الأعمال",
+        owner: "الهيئة السعودية للمواصفات والمقاييس والجودة",
+        targetAudience: "المؤسسات",
+        targetType: "المنظمات الربحية وغير الربحية",
+        value: "غير موضح",
+        scope: "وطنيّة",
+        cycle: "سنويّة",
+        nominationMethod: "الترشيح الذاتي",
+        website: "https://www.saso.gov.sa",
+        notes: ""
     }
 ];
 
@@ -101,7 +116,7 @@ function formatValue(value) {
  */
 function createAwardCard(award) {
     const websiteBtn = award.website 
-        ? `<a href="${award.website}" class="btn btn-outline-secondary btn-sm" target="_blank" rel="noopener noreferrer">
+        ? `<a href="${award.website}" class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer">
              <i class="bi bi-box-arrow-up-left me-1"></i>
              زيارة الموقع
            </a>`
@@ -112,7 +127,10 @@ function createAwardCard(award) {
             <article class="award-card">
                 <div class="award-card__header">
                     <h3 class="award-card__title">${award.name}</h3>
-                    <span class="award-card__sector">${award.sector}</span>
+                    <span class="award-card__sector">
+                        <i class="bi bi-tag-fill"></i>
+                        ${award.sector}
+                    </span>
                 </div>
                 <div class="award-card__body">
                     <p class="award-card__owner">
@@ -120,12 +138,12 @@ function createAwardCard(award) {
                         ${award.owner}
                     </p>
                     <span class="award-card__scope">
-                        <i class="bi bi-globe2 me-1"></i>
+                        <i class="bi bi-globe2"></i>
                         ${award.scope}
                     </span>
                 </div>
                 <div class="award-card__footer">
-                    <button class="btn btn-primary" onclick="showAwardDetails(${award.id})">
+                    <button class="btn btn-primary btn-sm" onclick="showAwardDetails(${award.id})">
                         <i class="bi bi-info-circle me-1"></i>
                         تفاصيل الجائزة
                     </button>
@@ -137,7 +155,7 @@ function createAwardCard(award) {
 }
 
 /**
- * Show award details in modal
+ * Show award details in modal - Modern design without table
  */
 function showAwardDetails(awardId) {
     const award = awardsData.find(a => a.id === awardId);
@@ -150,39 +168,49 @@ function showAwardDetails(awardId) {
     
     modalTitle.textContent = award.name;
     
-    // Build details table
-    const rows = [
-        { label: 'م', value: award.id },
-        { label: 'اسم الجائزة', value: award.name },
-        { label: 'وصف مختصر للجائزة', value: award.description },
-        { label: 'القطاع', value: award.sector },
-        { label: 'الجهة المالكة لها', value: award.owner },
-        { label: 'الفئة المستهدفة', value: award.targetAudience },
-        { label: 'نوع الفئة المستهدفة', value: award.targetType },
-        { label: 'مجموع قيمة الجائزة', value: formatValue(award.value) },
-        { label: 'نطاق الجائزة', value: award.scope },
-        { label: 'دورة الجائزة', value: award.cycle },
-        { label: 'طريقة الترشيح', value: award.nominationMethod },
-        { label: 'موقع الجائزة', value: award.website ? `<a href="${award.website}" target="_blank" rel="noopener">${award.website}</a>` : '—' }
+    // Build modern details layout
+    const items = [
+        { label: 'الوصف', value: award.description, icon: 'bi-file-text' },
+        { label: 'القطاع', value: award.sector, icon: 'bi-grid' },
+        { label: 'الجهة المالكة', value: award.owner, icon: 'bi-building' },
+        { label: 'الفئة المستهدفة', value: award.targetAudience, icon: 'bi-people' },
+        { label: 'نوع الفئة', value: award.targetType, icon: 'bi-person-badge' },
+        { label: 'قيمة الجائزة', value: formatValue(award.value), icon: 'bi-currency-dollar' },
+        { label: 'النطاق', value: award.scope, icon: 'bi-globe2' },
+        { label: 'الدورة', value: award.cycle, icon: 'bi-calendar-event' },
+        { label: 'طريقة الترشيح', value: award.nominationMethod, icon: 'bi-clipboard-check' }
     ];
     
-    // Add notes row only if notes exist
-    if (award.notes && award.notes.trim() !== '') {
-        rows.push({ label: 'الملاحظات', value: award.notes });
+    // Add website if exists
+    if (award.website) {
+        items.push({ 
+            label: 'الموقع الإلكتروني', 
+            value: `<a href="${award.website}" target="_blank" rel="noopener">${award.website}</a>`,
+            icon: 'bi-link-45deg'
+        });
     }
     
-    let tableHTML = '<table class="award-details__table">';
-    rows.forEach(row => {
-        tableHTML += `
-            <tr>
-                <th scope="row">${row.label}</th>
-                <td>${row.value || '—'}</td>
-            </tr>
-        `;
-    });
-    tableHTML += '</table>';
+    // Add notes if exists
+    if (award.notes && award.notes.trim() !== '') {
+        items.push({ label: 'ملاحظات', value: award.notes, icon: 'bi-sticky' });
+    }
     
-    content.innerHTML = tableHTML;
+    let html = '';
+    items.forEach(item => {
+        if (item.value && item.value !== '—') {
+            html += `
+                <div class="award-details__item">
+                    <div class="award-details__label">
+                        <i class="bi ${item.icon} me-2"></i>
+                        ${item.label}
+                    </div>
+                    <div class="award-details__value">${item.value}</div>
+                </div>
+            `;
+        }
+    });
+    
+    content.innerHTML = html;
     
     // Update visit button
     if (award.website) {
@@ -226,12 +254,12 @@ function renderAwards(awards) {
     
     if (awards.length === 0) {
         grid.innerHTML = '';
-        noResults.classList.remove('d-none');
-        resultsCount.textContent = '0';
+        if (noResults) noResults.classList.remove('d-none');
+        if (resultsCount) resultsCount.textContent = '0';
     } else {
         grid.innerHTML = awards.map(award => createAwardCard(award)).join('');
-        noResults.classList.add('d-none');
-        resultsCount.textContent = awards.length;
+        if (noResults) noResults.classList.add('d-none');
+        if (resultsCount) resultsCount.textContent = awards.length;
     }
 }
 
@@ -253,27 +281,31 @@ function initAwardsPage() {
     }
     
     // Initial render
-    const filteredAwards = filterAwards(searchInput.value, sectorFilter.value);
+    const filteredAwards = filterAwards(searchInput.value, sectorFilter ? sectorFilter.value : '');
     renderAwards(filteredAwards);
     
     // Search input event
     searchInput.addEventListener('input', function() {
-        const filteredAwards = filterAwards(this.value, sectorFilter.value);
+        const filteredAwards = filterAwards(this.value, sectorFilter ? sectorFilter.value : '');
         renderAwards(filteredAwards);
     });
     
     // Sector filter event
-    sectorFilter.addEventListener('change', function() {
-        const filteredAwards = filterAwards(searchInput.value, this.value);
-        renderAwards(filteredAwards);
-    });
+    if (sectorFilter) {
+        sectorFilter.addEventListener('change', function() {
+            const filteredAwards = filterAwards(searchInput.value, this.value);
+            renderAwards(filteredAwards);
+        });
+    }
     
     // Reset button
-    resetBtn.addEventListener('click', function() {
-        searchInput.value = '';
-        sectorFilter.value = '';
-        renderAwards(awardsData);
-    });
+    if (resetBtn) {
+        resetBtn.addEventListener('click', function() {
+            searchInput.value = '';
+            if (sectorFilter) sectorFilter.value = '';
+            renderAwards(awardsData);
+        });
+    }
 }
 
 // ==================== ADD AWARD FORM ====================
@@ -303,4 +335,7 @@ document.addEventListener('DOMContentLoaded', function() {
             toast.show();
         });
     }
+    
+    // Initialize awards page if on awards.html
+    initAwardsPage();
 });
