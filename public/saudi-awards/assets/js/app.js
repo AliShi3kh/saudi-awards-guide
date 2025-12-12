@@ -1,6 +1,7 @@
 /**
  * جوائز السعودية - Saudi Awards
  * Main JavaScript Application
+ * Modern & Vibrant Design
  */
 
 // ==================== AWARDS DATA ====================
@@ -112,31 +113,55 @@ function formatValue(value) {
 }
 
 /**
- * Create award card HTML
+ * Get sector icon
+ */
+function getSectorIcon(sector) {
+    const icons = {
+        'قطاع الثقافة': 'bi-palette2',
+        'قطاع التعليم': 'bi-mortarboard',
+        'قطاع التقنية': 'bi-cpu',
+        'قطاع الصحة': 'bi-heart-pulse',
+        'قطاع الأعمال': 'bi-briefcase',
+        'قطاع البيئة': 'bi-tree'
+    };
+    return icons[sector] || 'bi-trophy';
+}
+
+/**
+ * Create award card HTML - Modern Design
  */
 function createAwardCard(award) {
     const websiteBtn = award.website 
         ? `<a href="${award.website}" class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer">
-             <i class="bi bi-box-arrow-up-left me-1"></i>
-             زيارة الموقع
+             <i class="bi bi-box-arrow-up-left"></i>
+             الموقع
            </a>`
         : '';
     
+    const sectorIcon = getSectorIcon(award.sector);
+    
     return `
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="award-card-wrapper">
             <article class="award-card">
                 <div class="award-card__header">
-                    <h3 class="award-card__title">${award.name}</h3>
-                    <span class="award-card__sector">
-                        <i class="bi bi-tag-fill"></i>
-                        ${award.sector}
-                    </span>
+                    <div class="award-card__logo">
+                        <i class="bi ${sectorIcon}"></i>
+                    </div>
+                    <div class="award-card__info">
+                        <h3 class="award-card__title">${award.name}</h3>
+                        <span class="award-card__sector">
+                            <i class="bi bi-tag-fill"></i>
+                            ${award.sector}
+                        </span>
+                    </div>
                 </div>
                 <div class="award-card__body">
-                    <p class="award-card__owner">
-                        <i class="bi bi-building"></i>
-                        ${award.owner}
-                    </p>
+                    <div class="award-card__meta">
+                        <div class="award-card__meta-item">
+                            <i class="bi bi-building"></i>
+                            <span>${award.owner}</span>
+                        </div>
+                    </div>
                     <span class="award-card__scope">
                         <i class="bi bi-globe2"></i>
                         ${award.scope}
@@ -144,7 +169,7 @@ function createAwardCard(award) {
                 </div>
                 <div class="award-card__footer">
                     <button class="btn btn-primary btn-sm" onclick="showAwardDetails(${award.id})">
-                        <i class="bi bi-info-circle me-1"></i>
+                        <i class="bi bi-info-circle"></i>
                         تفاصيل الجائزة
                     </button>
                     ${websiteBtn}
@@ -155,7 +180,7 @@ function createAwardCard(award) {
 }
 
 /**
- * Show award details in modal - Modern design without table
+ * Show award details in modal - Modern Professional Design
  */
 function showAwardDetails(awardId) {
     const award = awardsData.find(a => a.id === awardId);
@@ -168,16 +193,31 @@ function showAwardDetails(awardId) {
     
     modalTitle.textContent = award.name;
     
-    // Build modern details layout
+    // Build badges HTML
+    let badgesHtml = `
+        <div class="award-details__badges">
+            <span class="award-details__badge award-details__badge--sector">
+                <i class="bi bi-tag-fill"></i>
+                ${award.sector}
+            </span>
+            <span class="award-details__badge award-details__badge--scope">
+                <i class="bi bi-globe2"></i>
+                ${award.scope}
+            </span>
+            <span class="award-details__badge award-details__badge--cycle">
+                <i class="bi bi-calendar-event"></i>
+                ${award.cycle}
+            </span>
+        </div>
+    `;
+    
+    // Build details items
     const items = [
         { label: 'الوصف', value: award.description, icon: 'bi-file-text' },
-        { label: 'القطاع', value: award.sector, icon: 'bi-grid' },
         { label: 'الجهة المالكة', value: award.owner, icon: 'bi-building' },
         { label: 'الفئة المستهدفة', value: award.targetAudience, icon: 'bi-people' },
         { label: 'نوع الفئة', value: award.targetType, icon: 'bi-person-badge' },
         { label: 'قيمة الجائزة', value: formatValue(award.value), icon: 'bi-currency-dollar' },
-        { label: 'النطاق', value: award.scope, icon: 'bi-globe2' },
-        { label: 'الدورة', value: award.cycle, icon: 'bi-calendar-event' },
         { label: 'طريقة الترشيح', value: award.nominationMethod, icon: 'bi-clipboard-check' }
     ];
     
@@ -195,13 +235,13 @@ function showAwardDetails(awardId) {
         items.push({ label: 'ملاحظات', value: award.notes, icon: 'bi-sticky' });
     }
     
-    let html = '';
+    let itemsHtml = '<div class="award-details__grid">';
     items.forEach(item => {
-        if (item.value && item.value !== '—') {
-            html += `
+        if (item.value && item.value !== '—' && item.value !== 'غير موضح') {
+            itemsHtml += `
                 <div class="award-details__item">
                     <div class="award-details__label">
-                        <i class="bi ${item.icon} me-2"></i>
+                        <i class="bi ${item.icon}"></i>
                         ${item.label}
                     </div>
                     <div class="award-details__value">${item.value}</div>
@@ -209,8 +249,9 @@ function showAwardDetails(awardId) {
             `;
         }
     });
+    itemsHtml += '</div>';
     
-    content.innerHTML = html;
+    content.innerHTML = badgesHtml + itemsHtml;
     
     // Update visit button
     if (award.website) {
@@ -234,9 +275,10 @@ function filterAwards(searchTerm, sector) {
             award.name.includes(searchTerm) ||
             award.sector.includes(searchTerm) ||
             award.owner.includes(searchTerm) ||
-            award.scope.includes(searchTerm);
+            award.scope.includes(searchTerm) ||
+            award.description.includes(searchTerm);
         
-        const sectorMatch = !sector || award.sector === sector;
+        const sectorMatch = !sector || award.sector.includes(sector);
         
         return searchMatch && sectorMatch;
     });
@@ -245,12 +287,15 @@ function filterAwards(searchTerm, sector) {
 /**
  * Render awards grid
  */
-function renderAwards(awards) {
+function renderAwards(awards, viewMode = 'grid') {
     const grid = document.getElementById('awardsGrid');
     const noResults = document.getElementById('noResults');
     const resultsCount = document.getElementById('resultsCount');
     
     if (!grid) return;
+    
+    // Update view mode class
+    grid.className = viewMode === 'list' ? 'awards-grid awards-grid--list' : 'awards-grid';
     
     if (awards.length === 0) {
         grid.innerHTML = '';
@@ -264,6 +309,38 @@ function renderAwards(awards) {
 }
 
 /**
+ * Initialize view toggle
+ */
+function initViewToggle() {
+    const gridBtn = document.getElementById('gridViewBtn');
+    const listBtn = document.getElementById('listViewBtn');
+    
+    if (!gridBtn || !listBtn) return;
+    
+    let currentView = 'grid';
+    
+    gridBtn.addEventListener('click', function() {
+        currentView = 'grid';
+        gridBtn.classList.add('active');
+        listBtn.classList.remove('active');
+        renderAwards(filterAwards(
+            document.getElementById('searchInput')?.value || '',
+            document.getElementById('sectorFilter')?.value || ''
+        ), 'grid');
+    });
+    
+    listBtn.addEventListener('click', function() {
+        currentView = 'list';
+        listBtn.classList.add('active');
+        gridBtn.classList.remove('active');
+        renderAwards(filterAwards(
+            document.getElementById('searchInput')?.value || '',
+            document.getElementById('sectorFilter')?.value || ''
+        ), 'list');
+    });
+}
+
+/**
  * Initialize awards page
  */
 function initAwardsPage() {
@@ -273,11 +350,29 @@ function initAwardsPage() {
     
     if (!searchInput) return;
     
+    // Initialize view toggle
+    initViewToggle();
+    
     // Check for search query in URL
     const urlParams = new URLSearchParams(window.location.search);
     const queryParam = urlParams.get('q');
+    const sectorParam = urlParams.get('sector');
+    
     if (queryParam) {
         searchInput.value = queryParam;
+    }
+    
+    if (sectorParam && sectorFilter) {
+        // Map URL sector to Arabic sector name
+        const sectorMap = {
+            'culture': 'الثقافة',
+            'education': 'التعليم',
+            'tech': 'التقنية',
+            'health': 'الصحة',
+            'business': 'الأعمال',
+            'environment': 'البيئة'
+        };
+        sectorFilter.value = sectorMap[sectorParam] || '';
     }
     
     // Initial render
@@ -304,6 +399,8 @@ function initAwardsPage() {
             searchInput.value = '';
             if (sectorFilter) sectorFilter.value = '';
             renderAwards(awardsData);
+            // Reset URL
+            window.history.replaceState({}, '', window.location.pathname);
         });
     }
 }
@@ -338,4 +435,18 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize awards page if on awards.html
     initAwardsPage();
+    
+    // Add smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
 });
