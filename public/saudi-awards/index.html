@@ -355,6 +355,33 @@
                 </div>
             </div>
         </section>
+
+        <!-- ==================== CTA / HELP SECTION ==================== -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-card">
+                    <div class="cta-card__content">
+                        <div class="cta-card__icon">
+                            <i class="bi bi-headset"></i>
+                        </div>
+                        <div class="cta-card__text">
+                            <h2 class="cta-card__title">هل تحتاج مساعدة أو خدمة؟</h2>
+                            <p class="cta-card__subtitle">فريقنا جاهز لمساعدتك في الاستشارات وإنشاء الجوائز والتقديم عليها</p>
+                        </div>
+                    </div>
+                    <div class="cta-card__actions">
+                        <button class="btn btn-accent btn-lg" data-bs-toggle="modal" data-bs-target="#serviceRequestModal">
+                            <i class="bi bi-send-fill"></i>
+                            طلب خدمة الآن
+                        </button>
+                        <a href="contact.html" class="btn btn-outline-light btn-lg">
+                            <i class="bi bi-chat-dots"></i>
+                            تواصل معنا
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- ==================== FOOTER ==================== -->
@@ -428,21 +455,34 @@
         </div>
     </footer>
 
-    <!-- ==================== AWARD DETAILS MODAL ==================== -->
+    <!-- ==================== AWARD DETAILS MODAL - Professional ==================== -->
     <div class="modal fade" id="awardDetailsModal" tabindex="-1" aria-labelledby="awardDetailsModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2 class="modal-title" id="awardDetailsModalLabel">تفاصيل الجائزة</h2>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+            <div class="modal-content award-modal">
+                <div class="modal-header award-modal__header">
+                    <div class="award-modal__header-content">
+                        <div class="award-modal__icon" id="awardModalIcon">
+                            <i class="bi bi-trophy"></i>
+                        </div>
+                        <div class="award-modal__header-info">
+                            <h2 class="modal-title award-modal__title" id="awardDetailsModalLabel">تفاصيل الجائزة</h2>
+                            <div class="award-modal__badges" id="awardModalBadges">
+                                <!-- Badges will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="إغلاق"></button>
                 </div>
-                <div class="modal-body">
-                    <div class="award-details" id="awardDetailsContent">
+                <div class="modal-body award-modal__body">
+                    <div id="awardDetailsContent">
                         <!-- Content will be populated by JavaScript -->
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+                <div class="modal-footer award-modal__footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                        <i class="bi bi-x-lg"></i>
+                        إغلاق
+                    </button>
                     <a href="#" class="btn btn-primary d-none" id="visitAwardSite" target="_blank" rel="noopener noreferrer">
                         <i class="bi bi-box-arrow-up-left"></i>
                         زيارة موقع الجائزة
@@ -452,67 +492,234 @@
         </div>
     </div>
 
-    <!-- ==================== ADD AWARD MODAL ==================== -->
+    <!-- ==================== ADD AWARD MODAL - Professional ==================== -->
     <div class="modal fade" id="addAwardModal" tabindex="-1" aria-labelledby="addAwardModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2 class="modal-title" id="addAwardModalLabel">
-                        <i class="bi bi-plus-circle me-2"></i>
-                        إضافة جائزة جديدة
-                    </h2>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+            <div class="modal-content add-modal">
+                <div class="modal-header add-modal__header">
+                    <div class="add-modal__header-content">
+                        <div class="add-modal__icon">
+                            <i class="bi bi-plus-lg"></i>
+                        </div>
+                        <div>
+                            <h2 class="modal-title add-modal__title" id="addAwardModalLabel">إضافة جائزة جديدة</h2>
+                            <p class="add-modal__subtitle">ساهم في إثراء دليل الجوائز السعودية</p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="إغلاق"></button>
                 </div>
-                <div class="modal-body">
-                    <p class="text-muted mb-4">ساهم في إثراء دليل الجوائز بإضافة جائزة جديدة. سيتم مراجعة المعلومات قبل النشر.</p>
-                    <form id="addAwardForm">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <label class="form-label">اسم الجائزة <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" required placeholder="أدخل اسم الجائزة">
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">القطاع <span class="text-danger">*</span></label>
-                                <select class="form-select" required>
-                                    <option value="">اختر القطاع</option>
-                                    <option value="culture">الثقافة</option>
-                                    <option value="education">التعليم</option>
-                                    <option value="tech">التقنية</option>
-                                    <option value="health">الصحة</option>
-                                    <option value="business">الأعمال</option>
-                                    <option value="environment">البيئة</option>
-                                    <option value="other">أخرى</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">الجهة المالكة <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" required placeholder="أدخل اسم الجهة المانحة">
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">نطاق الجائزة <span class="text-danger">*</span></label>
-                                <select class="form-select" required>
-                                    <option value="">اختر النطاق</option>
-                                    <option value="national">وطنية</option>
-                                    <option value="arab">عربية</option>
-                                    <option value="international">عالمية</option>
-                                </select>
-                            </div>
+                <div class="modal-body add-modal__body">
+                    <div class="add-modal__intro">
+                        <i class="bi bi-info-circle"></i>
+                        <span>سيتم مراجعة المعلومات من قبل فريقنا قبل النشر</span>
+                    </div>
+                    <form id="addAwardForm" class="add-modal__form">
+                        <div class="row g-4">
+                            <!-- Award Name -->
                             <div class="col-12">
-                                <label class="form-label">موقع الجائزة</label>
-                                <input type="url" class="form-control" placeholder="https://example.com">
+                                <div class="form-floating-custom">
+                                    <label class="form-label-custom">
+                                        <i class="bi bi-trophy"></i>
+                                        اسم الجائزة
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control form-control-custom" required 
+                                           placeholder="مثال: جائزة الملك فيصل">
+                                </div>
                             </div>
+                            
+                            <!-- Sector & Scope -->
+                            <div class="col-md-6">
+                                <div class="form-floating-custom">
+                                    <label class="form-label-custom">
+                                        <i class="bi bi-grid"></i>
+                                        القطاع
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <select class="form-select form-control-custom" required>
+                                        <option value="">اختر القطاع</option>
+                                        <option value="culture">الثقافة</option>
+                                        <option value="education">التعليم</option>
+                                        <option value="tech">التقنية</option>
+                                        <option value="health">الصحة</option>
+                                        <option value="business">الأعمال</option>
+                                        <option value="environment">البيئة</option>
+                                        <option value="other">أخرى</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating-custom">
+                                    <label class="form-label-custom">
+                                        <i class="bi bi-globe2"></i>
+                                        نطاق الجائزة
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <select class="form-select form-control-custom" required>
+                                        <option value="">اختر النطاق</option>
+                                        <option value="national">وطنية</option>
+                                        <option value="arab">عربية</option>
+                                        <option value="international">عالمية</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <!-- Owner -->
                             <div class="col-12">
-                                <label class="form-label">وصف مختصر</label>
-                                <textarea class="form-control" rows="3" placeholder="أضف وصفًا مختصرًا للجائزة..."></textarea>
+                                <div class="form-floating-custom">
+                                    <label class="form-label-custom">
+                                        <i class="bi bi-building"></i>
+                                        الجهة المالكة
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control form-control-custom" required 
+                                           placeholder="مثال: وزارة الثقافة">
+                                </div>
+                            </div>
+                            
+                            <!-- Website -->
+                            <div class="col-12">
+                                <div class="form-floating-custom">
+                                    <label class="form-label-custom">
+                                        <i class="bi bi-link-45deg"></i>
+                                        موقع الجائزة
+                                    </label>
+                                    <input type="url" class="form-control form-control-custom" 
+                                           placeholder="https://example.com">
+                                </div>
+                            </div>
+                            
+                            <!-- Description -->
+                            <div class="col-12">
+                                <div class="form-floating-custom">
+                                    <label class="form-label-custom">
+                                        <i class="bi bi-card-text"></i>
+                                        وصف مختصر
+                                    </label>
+                                    <textarea class="form-control form-control-custom" rows="3" 
+                                              placeholder="أضف وصفًا مختصرًا للجائزة وأهدافها..."></textarea>
+                                </div>
                             </div>
                         </div>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                <div class="modal-footer add-modal__footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                        <i class="bi bi-x-lg"></i>
+                        إلغاء
+                    </button>
                     <button type="button" class="btn btn-primary" id="submitAwardBtn">
-                        <i class="bi bi-send"></i>
+                        <i class="bi bi-send-fill"></i>
                         إرسال الاقتراح
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SERVICE REQUEST MODAL ==================== -->
+    <div class="modal fade" id="serviceRequestModal" tabindex="-1" aria-labelledby="serviceRequestModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content add-modal">
+                <div class="modal-header add-modal__header" style="background: linear-gradient(135deg, #0D9488 0%, #22C55E 100%);">
+                    <div class="add-modal__header-content">
+                        <div class="add-modal__icon">
+                            <i class="bi bi-headset"></i>
+                        </div>
+                        <div>
+                            <h2 class="modal-title add-modal__title" id="serviceRequestModalLabel">طلب خدمة</h2>
+                            <p class="add-modal__subtitle">نحن هنا لمساعدتك في جميع خدماتنا</p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+                </div>
+                <div class="modal-body add-modal__body">
+                    <div class="add-modal__intro">
+                        <i class="bi bi-info-circle"></i>
+                        <span>سيتم التواصل معك خلال 24 ساعة</span>
+                    </div>
+                    <form id="serviceRequestForm" class="add-modal__form">
+                        <div class="row g-4">
+                            <!-- Name -->
+                            <div class="col-md-6">
+                                <div class="form-floating-custom">
+                                    <label class="form-label-custom">
+                                        <i class="bi bi-person"></i>
+                                        الاسم
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control form-control-custom" required 
+                                           placeholder="أدخل اسمك الكامل">
+                                </div>
+                            </div>
+                            
+                            <!-- Email -->
+                            <div class="col-md-6">
+                                <div class="form-floating-custom">
+                                    <label class="form-label-custom">
+                                        <i class="bi bi-envelope"></i>
+                                        البريد الإلكتروني
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="email" class="form-control form-control-custom" required 
+                                           placeholder="example@email.com">
+                                </div>
+                            </div>
+                            
+                            <!-- Service Type -->
+                            <div class="col-12">
+                                <div class="form-floating-custom">
+                                    <label class="form-label-custom">
+                                        <i class="bi bi-list-check"></i>
+                                        نوع الخدمة
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <select class="form-select form-control-custom" required>
+                                        <option value="">اختر نوع الخدمة</option>
+                                        <option value="consultation">استشارة</option>
+                                        <option value="create-award">إنشاء جائزة</option>
+                                        <option value="apply-help">مساعدة في التقديم على جائزة</option>
+                                        <option value="other">أخرى</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <!-- Subject -->
+                            <div class="col-12">
+                                <div class="form-floating-custom">
+                                    <label class="form-label-custom">
+                                        <i class="bi bi-chat-left-text"></i>
+                                        الموضوع
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control form-control-custom" required 
+                                           placeholder="موضوع الطلب">
+                                </div>
+                            </div>
+                            
+                            <!-- Message -->
+                            <div class="col-12">
+                                <div class="form-floating-custom">
+                                    <label class="form-label-custom">
+                                        <i class="bi bi-card-text"></i>
+                                        تفاصيل الطلب
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <textarea class="form-control form-control-custom" rows="4" required
+                                              placeholder="اشرح تفاصيل طلبك..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer add-modal__footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                        <i class="bi bi-x-lg"></i>
+                        إلغاء
+                    </button>
+                    <button type="button" class="btn btn-primary" id="submitServiceBtn">
+                        <i class="bi bi-send-fill"></i>
+                        إرسال الطلب
                     </button>
                 </div>
             </div>
