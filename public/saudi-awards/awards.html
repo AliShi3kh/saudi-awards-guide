@@ -19,6 +19,9 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <!-- Awards Data -->
+    <script src="assets/js/awards-data.js"></script>
 </head>
 <body>
     <!-- Skip Link for Accessibility -->
@@ -109,12 +112,28 @@
                             </label>
                             <select id="sectorFilter" class="form-select search-toolbar__select">
                                 <option value="">جميع القطاعات</option>
-                                <option value="الثقافة">قطاع الثقافة</option>
-                                <option value="التعليم">قطاع التعليم</option>
-                                <option value="التقنية">قطاع التقنية</option>
-                                <option value="الصحة">قطاع الصحة</option>
-                                <option value="الأعمال">قطاع الأعمال</option>
-                                <option value="البيئة">قطاع البيئة</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Scope Filter -->
+                        <div class="search-toolbar__group search-toolbar__group--filter">
+                            <label class="search-toolbar__label">
+                                <i class="bi bi-globe2"></i>
+                                النطاق
+                            </label>
+                            <select id="scopeFilter" class="form-select search-toolbar__select">
+                                <option value="">جميع النطاقات</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Cycle Filter -->
+                        <div class="search-toolbar__group search-toolbar__group--filter">
+                            <label class="search-toolbar__label">
+                                <i class="bi bi-arrow-repeat"></i>
+                                الدورة
+                            </label>
+                            <select id="cycleFilter" class="form-select search-toolbar__select">
+                                <option value="">جميع الدورات</option>
                             </select>
                         </div>
                         
@@ -150,6 +169,14 @@
                 <!-- ==================== AWARDS GRID ==================== -->
                 <div class="awards-grid" id="awardsGrid">
                     <!-- Awards will be populated by JavaScript -->
+                </div>
+
+                <!-- Load More Button -->
+                <div class="text-center mt-5">
+                    <button type="button" id="loadMoreBtn" class="btn btn-outline-primary btn-lg d-none">
+                        <i class="bi bi-arrow-down-circle"></i>
+                        عرض المزيد
+                    </button>
                 </div>
 
                 <!-- No Results Message -->

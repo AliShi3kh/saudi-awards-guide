@@ -4,99 +4,17 @@
  * Professional & Modern Design
  */
 
-// ==================== AWARDS DATA ====================
-const awardsData = [
-    {
-        id: 1,
-        name: "الجوائز الثقافية الوطنية",
-        description: "جائزة وطنيّة لتكريم وتشجيع الإنجازات والإبداعات الثقافيّة في مختلف القطاعات بالسعوديّة؛ لتعزيز دور الثقافة في تحقيق رؤية المملكة 2030 وتعزيز مكانتها الدوليّة.",
-        sector: "قطاع الثقافة",
-        owner: "وزارة الثقافة",
-        targetAudience: "الأفراد، المؤسسات",
-        targetType: "المثقفون والفنانون، المؤسسات الربحيّة وغير الربحيّة، المجموعات الثقافية",
-        value: "غير موضح",
-        scope: "وطنيّة",
-        cycle: "سنويّة",
-        nominationMethod: "الترشيح الذاتي، الترشيح من اللجنات، الترشيح من الجهات، الترشيح من الأفراد",
-        website: "https://www.moc.gov.sa/Modules/Pages/Cultural-Awards",
-        notes: ""
-    },
-    {
-        id: 2,
-        name: "جائزة إرث",
-        description: "جائزة للتوثيق البصري لكافة عناصر محمية الملك سلمان بن عبدالعزيز الملكية وعكس المناظر الجمالية والآثار والحياة الفطرية داخل حدود المحميّة.",
-        sector: "قطاع الثقافة",
-        owner: "هيئة تطوير محمية الملك سلمان بن عبدالعزيز الملكية",
-        targetAudience: "الأفراد",
-        targetType: "المصورون",
-        value: "232,000",
-        scope: "وطنيّة",
-        cycle: "غير موضح",
-        nominationMethod: "الترشيح الذاتي",
-        website: "https://permits.ksrnr.gov.sa/ar/competition#about",
-        notes: ""
-    },
-    {
-        id: 3,
-        name: "جائزة الملك فيصل",
-        description: "جائزة لتكريم العلماء على إنجازاتهم الفريدة في مجالاتٍ عديدة: خدمة الإسلام، الدراسات الإسلامية، اللغة العربية والأدب، والطب والعلوم.",
-        sector: "قطاع الثقافة",
-        owner: "مؤسسة الملك فيصل الخيريّة",
-        targetAudience: "الأفراد",
-        targetType: "العلماء",
-        value: "3,750,000",
-        scope: "عالميّة",
-        cycle: "سنويّة",
-        nominationMethod: "الترشيح من اللجنات",
-        website: "https://kingfaisalprize.org/",
-        notes: ""
-    },
-    {
-        id: 4,
-        name: "جائزة عبدالله بن إدريس الثقافية",
-        description: "جائزة تستحث المثقفين في إثراء الميادين الثقافيّة المتنوّعة بإنتاجاتٍ إبداعيّة أصيلة تخدم الثقافة العربيّة وتعزّز مكانتها العالميّة.",
-        sector: "قطاع الثقافة",
-        owner: "مركز عبد الله بن إدريس الثقافي",
-        targetAudience: "الأفراد",
-        targetType: "شعراء الفصحى",
-        value: "300,000",
-        scope: "عربيّة",
-        cycle: "كل سنتين",
-        nominationMethod: "الترشيح الذاتي، الترشيح من الجهات",
-        website: "https://binidrees.org/",
-        notes: ""
-    },
-    {
-        id: 5,
-        name: "جائزة الأمير عبد الله الفيصل للشعر العربي",
-        description: "جائزة أدبيّة؛ لتكريم المبدعين والمتميّزين في المجالات الشعريّة العربيّة الفصيحة.",
-        sector: "قطاع الثقافة",
-        owner: "أكاديمية الشعر العربي",
-        targetAudience: "الأفراد",
-        targetType: "شعراء الفصحى",
-        value: "1,500,000",
-        scope: "عالميّة",
-        cycle: "سنويّة",
-        nominationMethod: "الترشيح الذاتي، الترشيح من الجهات",
-        website: "https://pap.tu.edu.sa/#aboutprize",
-        notes: ""
-    },
-    {
-        id: 6,
-        name: "جائزة الملك عبدالعزيز للجودة",
-        description: "جائزة وطنية تهدف لتحفيز المنظمات على تطبيق معايير الجودة والتميز المؤسسي لتحسين الأداء ورفع مستوى التنافسية.",
-        sector: "قطاع الأعمال",
-        owner: "الهيئة السعودية للمواصفات والمقاييس والجودة",
-        targetAudience: "المؤسسات",
-        targetType: "المنظمات الربحية وغير الربحية",
-        value: "غير موضح",
-        scope: "وطنيّة",
-        cycle: "سنويّة",
-        nominationMethod: "الترشيح الذاتي",
-        website: "https://www.saso.gov.sa",
-        notes: ""
-    }
-];
+// ==================== STATE MANAGEMENT ====================
+let currentPage = 1;
+const AWARDS_PER_PAGE = 20;
+const HOME_AWARDS_COUNT = 8;
+let filteredAwards = [];
+let currentFilters = {
+    search: '',
+    sector: '',
+    scope: '',
+    cycle: ''
+};
 
 // ==================== UTILITY FUNCTIONS ====================
 
@@ -104,10 +22,10 @@ const awardsData = [
  * Format currency value
  */
 function formatValue(value) {
-    if (!value || value === "غير موضح") {
+    if (!value || value === "غير موضح" || value === "غير واضح") {
         return "غير موضح";
     }
-    const num = parseInt(value.replace(/,/g, ''));
+    const num = parseInt(String(value).replace(/,/g, ''));
     if (isNaN(num)) return value;
     return num.toLocaleString('ar-SA') + ' ريال';
 }
@@ -119,12 +37,34 @@ function getSectorIcon(sector) {
     const icons = {
         'قطاع الثقافة': 'bi-palette2',
         'قطاع التعليم': 'bi-mortarboard',
-        'قطاع التقنية': 'bi-cpu',
+        'قطاع الاتصالات وتقنية المعلومات': 'bi-cpu',
         'قطاع الصحة': 'bi-heart-pulse',
         'قطاع الأعمال': 'bi-briefcase',
-        'قطاع البيئة': 'bi-tree'
+        'قطاع البيئة والمياه والزراعة': 'bi-tree',
+        'قطاع الرياضة': 'bi-trophy-fill',
+        'قطاع الإعلام': 'bi-broadcast',
+        'قطاع الحج والعمرة': 'bi-moon-stars',
+        'القطاع الأمني': 'bi-shield-check',
+        'قطاع الشؤون الإسلامية': 'bi-book',
+        'قطاع التنمية الاجتماعية': 'bi-people',
+        'قطاع الطاقة والصناعة': 'bi-lightning-charge',
+        'القطاع العدلي': 'bi-bank',
+        'قطاع العمل': 'bi-person-workspace'
     };
     return icons[sector] || 'bi-trophy';
+}
+
+/**
+ * Get unique values from awards data for filters
+ */
+function getUniqueValues(field) {
+    const values = new Set();
+    awardsData.forEach(award => {
+        if (award[field] && award[field] !== 'غير موضح' && award[field] !== 'غير واضح') {
+            values.add(award[field]);
+        }
+    });
+    return Array.from(values).sort();
 }
 
 /**
@@ -162,10 +102,18 @@ function createAwardCard(award) {
                             <span>${award.owner}</span>
                         </div>
                     </div>
-                    <span class="award-card__scope">
-                        <i class="bi bi-globe2"></i>
-                        ${award.scope}
-                    </span>
+                    <div class="award-card__badges">
+                        <span class="award-card__scope">
+                            <i class="bi bi-globe2"></i>
+                            ${award.scope}
+                        </span>
+                        ${award.cycle && award.cycle !== 'غير موضح' ? `
+                        <span class="award-card__cycle">
+                            <i class="bi bi-arrow-repeat"></i>
+                            ${award.cycle}
+                        </span>
+                        ` : ''}
+                    </div>
                 </div>
                 <div class="award-card__footer">
                     <button class="btn btn-primary btn-sm" onclick="showAwardDetails(${award.id})">
@@ -211,10 +159,12 @@ function showAwardDetails(awardId) {
                 <i class="bi bi-globe2"></i>
                 ${award.scope}
             </span>
+            ${award.cycle && award.cycle !== 'غير موضح' ? `
             <span class="award-modal__badge">
                 <i class="bi bi-calendar-event"></i>
                 ${award.cycle}
             </span>
+            ` : ''}
         `;
     }
     
@@ -241,7 +191,7 @@ function showAwardDetails(awardId) {
     let detailsHtml = '<div class="award-modal__details"><div class="award-modal__details-grid">';
     
     detailItems.forEach(item => {
-        if (item.value && item.value !== '—' && item.value !== 'غير موضح') {
+        if (item.value && item.value !== '—' && item.value !== 'غير موضح' && item.value !== 'غير واضح') {
             const fullClass = item.full ? ' award-modal__detail-item--full' : '';
             detailsHtml += `
                 <div class="award-modal__detail-item${fullClass}">
@@ -275,45 +225,90 @@ function showAwardDetails(awardId) {
 }
 
 /**
- * Filter awards based on search and sector
+ * Filter awards based on all criteria
  */
-function filterAwards(searchTerm, sector) {
-    return awardsData.filter(award => {
-        const searchMatch = !searchTerm || 
-            award.name.includes(searchTerm) ||
-            award.sector.includes(searchTerm) ||
-            award.owner.includes(searchTerm) ||
-            award.scope.includes(searchTerm) ||
-            award.description.includes(searchTerm);
+function filterAwards() {
+    filteredAwards = awardsData.filter(award => {
+        // Search filter
+        const searchMatch = !currentFilters.search || 
+            award.name.includes(currentFilters.search) ||
+            award.sector.includes(currentFilters.search) ||
+            award.owner.includes(currentFilters.search) ||
+            award.scope.includes(currentFilters.search) ||
+            award.description.includes(currentFilters.search);
         
-        const sectorMatch = !sector || award.sector.includes(sector);
+        // Sector filter
+        const sectorMatch = !currentFilters.sector || award.sector.includes(currentFilters.sector);
         
-        return searchMatch && sectorMatch;
+        // Scope filter
+        const scopeMatch = !currentFilters.scope || award.scope === currentFilters.scope;
+        
+        // Cycle filter
+        const cycleMatch = !currentFilters.cycle || award.cycle === currentFilters.cycle;
+        
+        return searchMatch && sectorMatch && scopeMatch && cycleMatch;
     });
+    
+    return filteredAwards;
 }
 
 /**
- * Render awards grid
+ * Render awards with pagination
  */
-function renderAwards(awards, viewMode = 'grid') {
+function renderAwards(viewMode = 'grid') {
     const grid = document.getElementById('awardsGrid');
     const noResults = document.getElementById('noResults');
     const resultsCount = document.getElementById('resultsCount');
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
     
     if (!grid) return;
     
     // Update view mode class
     grid.className = viewMode === 'list' ? 'awards-grid awards-grid--list' : 'awards-grid';
     
-    if (awards.length === 0) {
+    // Get filtered awards
+    filterAwards();
+    
+    // Calculate pagination
+    const startIndex = 0;
+    const endIndex = currentPage * AWARDS_PER_PAGE;
+    const awardsToShow = filteredAwards.slice(startIndex, endIndex);
+    
+    if (filteredAwards.length === 0) {
         grid.innerHTML = '';
         if (noResults) noResults.classList.remove('d-none');
+        if (loadMoreBtn) loadMoreBtn.classList.add('d-none');
         if (resultsCount) resultsCount.textContent = '0';
     } else {
-        grid.innerHTML = awards.map(award => createAwardCard(award)).join('');
+        grid.innerHTML = awardsToShow.map(award => createAwardCard(award)).join('');
         if (noResults) noResults.classList.add('d-none');
-        if (resultsCount) resultsCount.textContent = awards.length;
+        if (resultsCount) resultsCount.textContent = filteredAwards.length;
+        
+        // Show/hide load more button
+        if (loadMoreBtn) {
+            if (endIndex < filteredAwards.length) {
+                loadMoreBtn.classList.remove('d-none');
+                loadMoreBtn.innerHTML = `
+                    <i class="bi bi-arrow-down-circle"></i>
+                    عرض المزيد (${filteredAwards.length - endIndex} جائزة متبقية)
+                `;
+            } else {
+                loadMoreBtn.classList.add('d-none');
+            }
+        }
     }
+}
+
+/**
+ * Render featured awards on homepage
+ */
+function renderFeaturedAwards() {
+    const grid = document.getElementById('featuredAwardsGrid');
+    if (!grid) return;
+    
+    // Get first 8 awards for homepage
+    const featuredAwards = awardsData.slice(0, HOME_AWARDS_COUNT);
+    grid.innerHTML = featuredAwards.map(award => createAwardCard(award)).join('');
 }
 
 /**
@@ -331,21 +326,50 @@ function initViewToggle() {
         currentView = 'grid';
         gridBtn.classList.add('active');
         listBtn.classList.remove('active');
-        renderAwards(filterAwards(
-            document.getElementById('searchInput')?.value || '',
-            document.getElementById('sectorFilter')?.value || ''
-        ), 'grid');
+        renderAwards('grid');
     });
     
     listBtn.addEventListener('click', function() {
         currentView = 'list';
         listBtn.classList.add('active');
         gridBtn.classList.remove('active');
-        renderAwards(filterAwards(
-            document.getElementById('searchInput')?.value || '',
-            document.getElementById('sectorFilter')?.value || ''
-        ), 'list');
+        renderAwards('list');
     });
+}
+
+/**
+ * Populate filter dropdowns
+ */
+function populateFilters() {
+    // Sector filter
+    const sectorFilter = document.getElementById('sectorFilter');
+    if (sectorFilter) {
+        const sectors = getUniqueValues('sector');
+        sectorFilter.innerHTML = '<option value="">جميع القطاعات</option>';
+        sectors.forEach(sector => {
+            sectorFilter.innerHTML += `<option value="${sector}">${sector}</option>`;
+        });
+    }
+    
+    // Scope filter
+    const scopeFilter = document.getElementById('scopeFilter');
+    if (scopeFilter) {
+        const scopes = getUniqueValues('scope');
+        scopeFilter.innerHTML = '<option value="">جميع النطاقات</option>';
+        scopes.forEach(scope => {
+            scopeFilter.innerHTML += `<option value="${scope}">${scope}</option>`;
+        });
+    }
+    
+    // Cycle filter
+    const cycleFilter = document.getElementById('cycleFilter');
+    if (cycleFilter) {
+        const cycles = getUniqueValues('cycle');
+        cycleFilter.innerHTML = '<option value="">جميع الدورات</option>';
+        cycles.forEach(cycle => {
+            cycleFilter.innerHTML += `<option value="${cycle}">${cycle}</option>`;
+        });
+    }
 }
 
 /**
@@ -354,9 +378,15 @@ function initViewToggle() {
 function initAwardsPage() {
     const searchInput = document.getElementById('searchInput');
     const sectorFilter = document.getElementById('sectorFilter');
+    const scopeFilter = document.getElementById('scopeFilter');
+    const cycleFilter = document.getElementById('cycleFilter');
     const resetBtn = document.getElementById('resetBtn');
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
     
     if (!searchInput) return;
+    
+    // Populate filter dropdowns
+    populateFilters();
     
     // Initialize view toggle
     initViewToggle();
@@ -368,6 +398,7 @@ function initAwardsPage() {
     
     if (queryParam) {
         searchInput.value = queryParam;
+        currentFilters.search = queryParam;
     }
     
     if (sectorParam && sectorFilter) {
@@ -380,24 +411,64 @@ function initAwardsPage() {
             'business': 'الأعمال',
             'environment': 'البيئة'
         };
-        sectorFilter.value = sectorMap[sectorParam] || '';
+        const mappedSector = sectorMap[sectorParam] || '';
+        if (mappedSector) {
+            // Find the full sector name
+            const sectors = getUniqueValues('sector');
+            const fullSector = sectors.find(s => s.includes(mappedSector));
+            if (fullSector) {
+                sectorFilter.value = fullSector;
+                currentFilters.sector = fullSector;
+            }
+        }
     }
     
     // Initial render
-    const filteredAwards = filterAwards(searchInput.value, sectorFilter ? sectorFilter.value : '');
-    renderAwards(filteredAwards);
+    renderAwards();
     
     // Search input event
+    let searchTimeout;
     searchInput.addEventListener('input', function() {
-        const filteredAwards = filterAwards(this.value, sectorFilter ? sectorFilter.value : '');
-        renderAwards(filteredAwards);
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+            currentFilters.search = this.value;
+            currentPage = 1;
+            renderAwards();
+        }, 300);
     });
     
     // Sector filter event
     if (sectorFilter) {
         sectorFilter.addEventListener('change', function() {
-            const filteredAwards = filterAwards(searchInput.value, this.value);
-            renderAwards(filteredAwards);
+            currentFilters.sector = this.value;
+            currentPage = 1;
+            renderAwards();
+        });
+    }
+    
+    // Scope filter event
+    if (scopeFilter) {
+        scopeFilter.addEventListener('change', function() {
+            currentFilters.scope = this.value;
+            currentPage = 1;
+            renderAwards();
+        });
+    }
+    
+    // Cycle filter event
+    if (cycleFilter) {
+        cycleFilter.addEventListener('change', function() {
+            currentFilters.cycle = this.value;
+            currentPage = 1;
+            renderAwards();
+        });
+    }
+    
+    // Load more button
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', function() {
+            currentPage++;
+            renderAwards();
         });
     }
     
@@ -406,7 +477,11 @@ function initAwardsPage() {
         resetBtn.addEventListener('click', function() {
             searchInput.value = '';
             if (sectorFilter) sectorFilter.value = '';
-            renderAwards(awardsData);
+            if (scopeFilter) scopeFilter.value = '';
+            if (cycleFilter) cycleFilter.value = '';
+            currentFilters = { search: '', sector: '', scope: '', cycle: '' };
+            currentPage = 1;
+            renderAwards();
             // Reset URL
             window.history.replaceState({}, '', window.location.pathname);
         });
@@ -416,6 +491,16 @@ function initAwardsPage() {
 // ==================== ADD AWARD FORM ====================
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize awards page or homepage
+    if (document.getElementById('awardsGrid')) {
+        initAwardsPage();
+    }
+    
+    // Initialize featured awards on homepage
+    if (document.getElementById('featuredAwardsGrid')) {
+        renderFeaturedAwards();
+    }
+    
     // Handle add award form submission
     const submitBtn = document.getElementById('submitAwardBtn');
     if (submitBtn) {
@@ -466,15 +551,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Initialize awards page if on awards.html
-    initAwardsPage();
-    
-    // Add smooth scroll for anchor links
+    // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
+            e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                e.preventDefault();
                 target.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
