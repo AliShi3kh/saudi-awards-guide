@@ -86,272 +86,235 @@
     <!-- ==================== MAIN CONTENT ==================== -->
     <main id="main-content">
         <div class="main-wrapper">
-            <section class="section">
+            <section class="contact-section-pro">
                 <div class="container">
-            <div class="row g-5">
-                <!-- Contact Form -->
-                <div class="col-lg-7">
-                    <div class="card border-0 shadow-sm">
-                        <div class="card-body p-4 p-lg-5">
-                            <h2 class="h4 mb-4">
-                                <i class="bi bi-envelope text-primary me-2"></i>
-                                أرسل لنا رسالة
-                            </h2>
-                            <form id="contactForm">
-                                <div class="row g-3">
-                                    <div class="col-md-6">
-                                        <label for="contactName" class="form-label">الاسم <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" id="contactName" required>
+                    <div class="row g-5">
+                        <!-- Contact Form -->
+                        <div class="col-lg-7">
+                            <div class="contact-form-pro">
+                                <div class="contact-form-pro__header">
+                                    <div class="contact-form-pro__icon">
+                                        <i class="bi bi-envelope"></i>
                                     </div>
-                                    <div class="col-md-6">
-                                        <label for="contactEmail" class="form-label">البريد الإلكتروني <span class="text-danger">*</span></label>
-                                        <input type="email" class="form-control" id="contactEmail" required>
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="contactType" class="form-label">نوع التواصل <span class="text-danger">*</span></label>
-                                        <select class="form-select" id="contactType" required>
-                                            <option value="">اختر نوع التواصل</option>
-                                            <option value="consultation">استشارة</option>
-                                            <option value="inquiry">استفسار</option>
-                                            <option value="complaint">شكوى</option>
-                                            <option value="other">أخرى</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="contactSubject" class="form-label">الموضوع <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" id="contactSubject" required>
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="contactMessage" class="form-label">الرسالة <span class="text-danger">*</span></label>
-                                        <textarea class="form-control" id="contactMessage" rows="5" required></textarea>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="privacyCheck" required>
-                                            <label class="form-check-label" for="privacyCheck">
-                                                أوافق على <a href="#" class="text-primary">سياسة الخصوصية</a> وأسمح بالتواصل معي
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <button type="submit" class="btn btn-primary btn-lg">
-                                            <i class="bi bi-send me-2"></i>
-                                            إرسال الرسالة
-                                        </button>
+                                    <div>
+                                        <h2 class="contact-form-pro__title">أرسل لنا رسالة</h2>
+                                        <p class="contact-form-pro__subtitle">سنرد عليك في أقرب وقت ممكن</p>
                                     </div>
                                 </div>
-                            </form>
+                                <form id="contactForm">
+                                    <div class="row g-4">
+                                        <div class="col-md-6">
+                                            <div class="form-group-pro">
+                                                <label for="contactName" class="form-label-pro">
+                                                    <i class="bi bi-person"></i>
+                                                    الاسم <span class="text-danger">*</span>
+                                                </label>
+                                                <input type="text" class="form-control form-control-pro" id="contactName" placeholder="أدخل اسمك الكامل" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group-pro">
+                                                <label for="contactEmail" class="form-label-pro">
+                                                    <i class="bi bi-envelope"></i>
+                                                    البريد الإلكتروني <span class="text-danger">*</span>
+                                                </label>
+                                                <input type="email" class="form-control form-control-pro" id="contactEmail" placeholder="example@email.com" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group-pro">
+                                                <label for="contactPhone" class="form-label-pro">
+                                                    <i class="bi bi-telephone"></i>
+                                                    رقم الهاتف
+                                                </label>
+                                                <input type="tel" class="form-control form-control-pro" id="contactPhone" placeholder="+966 5XX XXX XXX">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group-pro">
+                                                <label for="contactType" class="form-label-pro">
+                                                    <i class="bi bi-tag"></i>
+                                                    نوع التواصل <span class="text-danger">*</span>
+                                                </label>
+                                                <select class="form-select form-control-pro" id="contactType" required>
+                                                    <option value="">اختر نوع التواصل</option>
+                                                    <option value="consultation">استشارة</option>
+                                                    <option value="inquiry">استفسار</option>
+                                                    <option value="complaint">شكوى</option>
+                                                    <option value="other">أخرى</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group-pro">
+                                                <label for="contactSubject" class="form-label-pro">
+                                                    <i class="bi bi-chat-text"></i>
+                                                    الموضوع <span class="text-danger">*</span>
+                                                </label>
+                                                <input type="text" class="form-control form-control-pro" id="contactSubject" placeholder="موضوع الرسالة" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group-pro">
+                                                <label for="contactMessage" class="form-label-pro">
+                                                    <i class="bi bi-pencil"></i>
+                                                    الرسالة <span class="text-danger">*</span>
+                                                </label>
+                                                <textarea class="form-control form-control-pro" id="contactMessage" rows="5" placeholder="اكتب رسالتك هنا..." required></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-check-pro">
+                                                <input class="form-check-input" type="checkbox" id="privacyCheck" required>
+                                                <label class="form-check-label" for="privacyCheck">
+                                                    أوافق على <a href="#" class="text-primary">سياسة الخصوصية</a> وأسمح بالتواصل معي
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <button type="submit" class="btn btn-primary btn-lg w-100">
+                                                <i class="bi bi-send"></i>
+                                                إرسال الرسالة
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Contact Info -->
+                        <div class="col-lg-5">
+                            <div class="contact-info-pro">
+                                <h2 class="contact-info-pro__title">معلومات التواصل</h2>
+                                <p class="contact-info-pro__subtitle">يمكنك التواصل معنا عبر القنوات التالية</p>
+                                
+                                <div class="contact-info-pro__items">
+                                    <div class="contact-info-pro__item">
+                                        <div class="contact-info-pro__icon">
+                                            <i class="bi bi-envelope-fill"></i>
+                                        </div>
+                                        <div class="contact-info-pro__content">
+                                            <h3>البريد الإلكتروني</h3>
+                                            <a href="mailto:info@saudi-awards.sa">info@saudi-awards.sa</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="contact-info-pro__item">
+                                        <div class="contact-info-pro__icon">
+                                            <i class="bi bi-telephone-fill"></i>
+                                        </div>
+                                        <div class="contact-info-pro__content">
+                                            <h3>الهاتف</h3>
+                                            <a href="tel:+966112345678" dir="ltr">+966 11 234 5678</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="contact-info-pro__item">
+                                        <div class="contact-info-pro__icon">
+                                            <i class="bi bi-geo-alt-fill"></i>
+                                        </div>
+                                        <div class="contact-info-pro__content">
+                                            <h3>الموقع</h3>
+                                            <p>الرياض، المملكة العربية السعودية</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="contact-info-pro__item">
+                                        <div class="contact-info-pro__icon">
+                                            <i class="bi bi-clock-fill"></i>
+                                        </div>
+                                        <div class="contact-info-pro__content">
+                                            <h3>ساعات العمل</h3>
+                                            <p>الأحد - الخميس: 9 صباحاً - 5 مساءً</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="contact-social-pro">
+                                    <h3>تابعنا على</h3>
+                                    <div class="contact-social-pro__links">
+                                        <a href="#" class="contact-social-pro__link" aria-label="تويتر">
+                                            <i class="bi bi-twitter-x"></i>
+                                        </a>
+                                        <a href="#" class="contact-social-pro__link" aria-label="لينكد إن">
+                                            <i class="bi bi-linkedin"></i>
+                                        </a>
+                                        <a href="#" class="contact-social-pro__link" aria-label="يوتيوب">
+                                            <i class="bi bi-youtube"></i>
+                                        </a>
+                                        <a href="#" class="contact-social-pro__link" aria-label="انستغرام">
+                                            <i class="bi bi-instagram"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Contact Info -->
-                <div class="col-lg-5">
-                    <div class="contact-info">
-                        <h2 class="h4 mb-4">معلومات التواصل</h2>
-                        
-                        <div class="contact-info__item d-flex mb-4">
-                            <div class="contact-info__icon bg-primary-subtle rounded-circle p-3 me-3">
-                                <i class="bi bi-envelope-fill text-primary fs-5"></i>
-                            </div>
-                            <div>
-                                <h3 class="h6 mb-1">البريد الإلكتروني</h3>
-                                <a href="mailto:info@saudi-awards.sa" class="text-muted text-decoration-none">
-                                    info@saudi-awards.sa
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="contact-info__item d-flex mb-4">
-                            <div class="contact-info__icon bg-primary-subtle rounded-circle p-3 me-3">
-                                <i class="bi bi-telephone-fill text-primary fs-5"></i>
-                            </div>
-                            <div>
-                                <h3 class="h6 mb-1">الهاتف</h3>
-                                <a href="tel:+966112345678" class="text-muted text-decoration-none" dir="ltr">
-                                    +966 11 234 5678
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="contact-info__item d-flex mb-4">
-                            <div class="contact-info__icon bg-primary-subtle rounded-circle p-3 me-3">
-                                <i class="bi bi-geo-alt-fill text-primary fs-5"></i>
-                            </div>
-                            <div>
-                                <h3 class="h6 mb-1">الموقع</h3>
-                                <p class="text-muted mb-0">الرياض، المملكة العربية السعودية</p>
-                            </div>
-                        </div>
-
-                        <hr class="my-4">
-
-                        <h3 class="h6 mb-3">تابعنا على</h3>
-                        <div class="d-flex gap-3">
-                            <a href="#" class="btn btn-outline-primary btn-sm rounded-circle" aria-label="تويتر">
-                                <i class="bi bi-twitter-x"></i>
-                            </a>
-                            <a href="#" class="btn btn-outline-primary btn-sm rounded-circle" aria-label="لينكد إن">
-                                <i class="bi bi-linkedin"></i>
-                            </a>
-                            <a href="#" class="btn btn-outline-primary btn-sm rounded-circle" aria-label="يوتيوب">
-                                <i class="bi bi-youtube"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </section>
         </div>
     </main>
 
     <!-- ==================== FOOTER ==================== -->
-    <footer class="footer py-5 bg-dark text-white">
+    <footer class="footer">
         <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-4">
-                    <h3 class="h5 mb-3">
-                        <i class="bi bi-trophy-fill text-primary me-2"></i>
-                        جوائز السعودية
-                    </h3>
-                    <p class="text-white-50">
-                        دليلك الشامل لاكتشاف الجوائز في المملكة العربية السعودية
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer__brand">
+                        <span class="footer__logo">
+                            <i class="bi bi-trophy-fill"></i>
+                        </span>
+                        <span class="footer__brand-text">جوائز السعودية</span>
+                    </div>
+                    <p class="footer__desc">
+                        منصتك الشاملة لاكتشاف جميع الجوائز المتاحة في المملكة العربية السعودية.
                     </p>
                 </div>
-                <div class="col-lg-4">
-                    <h3 class="h5 mb-3">روابط سريعة</h3>
-                    <ul class="list-unstyled footer__links">
+                <div class="col-lg-2 col-md-3 col-6">
+                    <h3 class="footer__title">روابط سريعة</h3>
+                    <ul class="footer__links">
                         <li><a href="index.html">الرئيسية</a></li>
                         <li><a href="about.html">من نحن</a></li>
                         <li><a href="awards.html">دليل الجوائز</a></li>
                         <li><a href="contact.html">اتصل بنا</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-4">
-                    <h3 class="h5 mb-3">تواصل معنا</h3>
-                    <div class="footer__social d-flex gap-3">
-                        <a href="#" class="text-white-50" aria-label="تويتر">
-                            <i class="bi bi-twitter-x fs-5"></i>
-                        </a>
-                        <a href="#" class="text-white-50" aria-label="لينكد إن">
-                            <i class="bi bi-linkedin fs-5"></i>
-                        </a>
-                        <a href="#" class="text-white-50" aria-label="البريد الإلكتروني">
-                            <i class="bi bi-envelope-fill fs-5"></i>
-                        </a>
+                <div class="col-lg-2 col-md-3 col-6">
+                    <h3 class="footer__title">القطاعات</h3>
+                    <ul class="footer__links">
+                        <li><a href="awards.html?sector=culture">الثقافة</a></li>
+                        <li><a href="awards.html?sector=education">التعليم</a></li>
+                        <li><a href="awards.html?sector=tech">التقنية</a></li>
+                        <li><a href="awards.html?sector=health">الصحة</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h3 class="footer__title">تواصل معنا</h3>
+                    <div class="footer__contact">
+                        <div class="footer__contact-item">
+                            <i class="bi bi-envelope"></i>
+                            <span>info@saudiawards.sa</span>
+                        </div>
+                        <div class="footer__contact-item">
+                            <i class="bi bi-telephone"></i>
+                            <span dir="ltr">+966 11 XXX XXXX</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <hr class="my-4 border-secondary">
-            <div class="text-center text-white-50">
-                <small>© 2024 جوائز السعودية. جميع الحقوق محفوظة.</small>
+            
+            <div class="footer__bottom">
+                <p class="footer__copyright">
+                    © 2024 جوائز السعودية. جميع الحقوق محفوظة.
+                </p>
             </div>
         </div>
     </footer>
 
-    <!-- ==================== ADD AWARD MODAL ==================== -->
-    <div class="modal fade" id="addAwardModal" tabindex="-1" aria-labelledby="addAwardModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-                <div class="modal-header border-0 pb-0">
-                    <h2 class="modal-title h4" id="addAwardModalLabel">
-                        <i class="bi bi-plus-circle text-primary me-2"></i>
-                        إضافة جائزة جديدة
-                    </h2>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="addAwardForm">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <label for="awardName" class="form-label">اسم الجائزة <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="awardName" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="awardSector" class="form-label">القطاع <span class="text-danger">*</span></label>
-                                <select class="form-select" id="awardSector" required>
-                                    <option value="">اختر القطاع</option>
-                                    <option value="قطاع الثقافة">قطاع الثقافة</option>
-                                    <option value="قطاع التعليم">قطاع التعليم</option>
-                                    <option value="قطاع الصحة">قطاع الصحة</option>
-                                    <option value="قطاع التقنية">قطاع التقنية</option>
-                                    <option value="قطاع الأعمال">قطاع الأعمال</option>
-                                    <option value="أخرى">أخرى</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="awardOwner" class="form-label">الجهة المالكة <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="awardOwner" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="awardScope" class="form-label">نطاق الجائزة <span class="text-danger">*</span></label>
-                                <select class="form-select" id="awardScope" required>
-                                    <option value="">اختر النطاق</option>
-                                    <option value="وطنيّة">وطنيّة</option>
-                                    <option value="عربيّة">عربيّة</option>
-                                    <option value="عالميّة">عالميّة</option>
-                                </select>
-                            </div>
-                            <div class="col-12">
-                                <label for="awardWebsite" class="form-label">موقع الجائزة (اختياري)</label>
-                                <input type="url" class="form-control" id="awardWebsite" placeholder="https://example.com">
-                            </div>
-                            <div class="col-12">
-                                <label for="awardDescription" class="form-label">وصف مختصر (اختياري)</label>
-                                <textarea class="form-control" id="awardDescription" rows="3"></textarea>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer border-0 pt-0">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
-                    <button type="button" class="btn btn-primary" id="submitAwardBtn">
-                        <i class="bi bi-send me-1"></i>
-                        إرسال
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ==================== SUCCESS TOAST ==================== -->
-    <div class="toast-container position-fixed bottom-0 end-0 p-3">
-        <div id="successToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="d-flex">
-                <div class="toast-body">
-                    <i class="bi bi-check-circle me-2"></i>
-                    تم استلام اقتراحك وسيتم مراجعته.
-                </div>
-                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="إغلاق"></button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Contact Success Toast -->
-    <div class="toast-container position-fixed bottom-0 end-0 p-3">
-        <div id="contactSuccessToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="d-flex">
-                <div class="toast-body">
-                    <i class="bi bi-check-circle me-2"></i>
-                    تم إرسال رسالتك بنجاح. سنتواصل معك قريباً.
-                </div>
-                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="إغلاق"></button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Bootstrap 5 JS -->
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
     <!-- Custom JS -->
     <script src="assets/js/app.js"></script>
-    <script>
-        // Contact form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const toast = new bootstrap.Toast(document.getElementById('contactSuccessToast'));
-            toast.show();
-            this.reset();
-        });
-    </script>
 </body>
 </html>
