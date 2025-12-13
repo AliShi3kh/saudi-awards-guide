@@ -1615,6 +1615,7 @@ a:hover {
     margin-bottom: var(--spacing-lg);
     line-height: 1.2;
     text-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+    color: white;
 }
 
 .hero-section__title span {
@@ -1628,6 +1629,7 @@ a:hover {
     margin: 0 auto var(--spacing-2xl);
     line-height: 1.9;
     font-weight: 400;
+    color: white;
 }
 
 /* Hero Search */
