@@ -1495,15 +1495,22 @@ a:hover {
 }
 
 /* ==================== HERO SECTION - Vibrant & Fresh ==================== */
+.hero-wrapper {
+    max-width: 92%;
+    margin: 0 auto;
+    padding-top: 90px;
+}
+
 .hero-section {
     background: var(--gradient-primary);
     color: white;
     padding: var(--spacing-4xl) 0 calc(var(--spacing-4xl) + 80px);
-    min-height: 75vh;
+    min-height: 65vh;
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
+    border-radius: 25px;
 }
 
 /* Decorative Elements */
