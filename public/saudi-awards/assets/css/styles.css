@@ -1496,9 +1496,9 @@ a:hover {
 
 /* ==================== HERO SECTION - Vibrant & Fresh ==================== */
 .hero-wrapper {
-    max-width: 92%;
+    max-width: 90%;
     margin: 0 auto;
-    padding-top: 90px;
+    padding-top: 15px;
 }
 
 .hero-section {
